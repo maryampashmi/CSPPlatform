@@ -1,0 +1,15 @@
+
+<div ng-show="collapsed" ng-click=expandList()>
+  <h4>List of services: [+]</h4>
+  <ul ng-repeat="service in provider.services">
+    <li>{{service}}</li>
+  </ul>
+</div>
+
+
+<div ng-show="!collapsed" ng-click=collapseList()>
+  <h4>List of services: [-]</h4>
+</div>
+
+
+

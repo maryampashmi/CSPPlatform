@@ -1,0 +1,15 @@
+
+<div ng-show="collapsed" ng-click=expandList()>
+  <h4>Locations: [+]</h4>
+  <ul ng-repeat="location in provider.locations">
+    <li>{{location}}</li>
+  </ul>
+</div>
+
+
+<div ng-show="!collapsed" ng-click=collapseList()>
+  <h4>Locations: [-]</h4>
+</div>
+
+
+

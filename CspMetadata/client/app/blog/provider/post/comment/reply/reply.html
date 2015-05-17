@@ -1,0 +1,37 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="page-header">
+        <h1>{{comment.title}}</h1>
+      </div>
+ <strong>Explanation: &nbsp;</strong> <span ng-text-truncate="comment.body"  ng-tt-chars-threshold="330"></span><br><br>
+<div ng-repeat="reply in comment.replies track by $index" >
+  <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(comment,reply)"></span>
+        <span style="font-size:18px; margin-left:10px;">
+         {{reply.upvotes}}-  &nbsp; reply by {{reply.author}}
+        </span>
+
+  <span ng-text-truncate="reply.body"  ng-tt-chars-threshold="70"></span>
+
+  <button class="btn btn-xs btn-info pull-right"  ng-click="modalUpdateReply('lg',comment,reply)">Edit</button>
+  <button class="btn btn-xs btn-danger pull-right" ng-click="deleteReply(reply._id,comment._id,reply._id)">Delete</button>
+</div>
+<form ng-submit="addReply()" style="margin-top:30px;" ng-show=" isLoggedIn()">  <!--here i added input parameter for reply, i am not sure if it is needed-->
+  <h3>Add a new  reply</h3>
+  <div class="control-group">
+    <div class="controls">
+      <textarea id="body" name="body" ng-model="body" type="text" placeholder="Reply" rows="5" class="form-control" required="" /></textarea>
+    </div>
+  </div>
+  <br>
+  <button type="submit" class="btn btn-primary">Add Reply</button>
+</form>
+
+<dir-pagination-controls pagination-id="reply"></dir-pagination-controls>
+<div ng-hide="isLoggedIn()">
+  <h3>You need to <a ui-sref="login">Log In</a> or <a ui-sref="register">Register</a> before you can add a reply.</h3>
+</div>
+    </div>
+  </div>
+</div>

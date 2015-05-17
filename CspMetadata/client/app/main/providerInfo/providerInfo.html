@@ -1,0 +1,28 @@
+
+<div ng-repeat="provider in providers | filter:search |  orderBy: cloudSortOrder:true">
+  <div class="panel panel-primary">
+
+    <div class="panel-heading " ng-click="collapse(provider) ">
+      <strong>{{provider.name}}&nbsp({{provider.abbreviated}}) </strong>
+    </div>
+    </a>
+    <div class="panel-body " ng-hide="provider.isCollapsed">
+      <description></description>
+      <show-link></show-link>
+      <list-of-services></list-of-services>
+      <location></location>
+
+    </div>
+
+    <a ui-sref="post({providerId:provider._id})">
+      <div class="panel-footer">
+        <span class="pull-left">View Blog</span>
+        <span class="pull-right">{{provider.createdOn | date:'mediumDate'}} </span>
+        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+        <div class="clearfix"></div>
+      </div>
+    </a>
+  </div>
+</div>
+
+

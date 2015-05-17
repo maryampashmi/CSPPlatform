@@ -1,0 +1,47 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+<div class="page-header">
+  <h1>{{post.title}}</h1>
+</div>
+      <strong>Explanation: &nbsp;</strong></strong> <span ng-text-truncate="post.body"  ng-tt-chars-threshold="330"></span><br><br>
+<div ng-repeat="comment in post.comments track by $index" >
+  <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(comment)"></span>
+
+    <span style="font-size:18px; margin-left:10px;">
+        {{comment.upvotes}}-  &nbsp;<strong> {{comment.title}}</strong> | {{comment.body | limitTo:20}}{{comment.body > 20 ? '':'...'}} comment by {{comment.author}}
+          <span ng-if="comment.replies.length !== 0">
+                <a ui-sref="reply({providerId:provider, postId : post._id, commentId: comment._id})">{{comment.replies.length}} Replies</a>
+             <button class="btn btn-xs btn-info pull-right"  ng-click="modalUpdateComment('lg',post,comment)">Edit</button>
+          </span>
+          <span ng-if="comment.replies.length === 0">
+            <a  ui-sref="reply({providerId:provider, postId : post._id, commentId: comment._id})">No replies</a>
+
+              <button class="btn btn-xs btn-info pull-right"  ng-click="modalUpdateComment('lg',post,comment)">Edit</button>
+              <button class="btn btn-xs btn-danger pull-right" ng-click="deleteComment(comment.title,post._id,comment._id)">Delete</button>
+         </span>
+    </span>
+
+</div>
+<form ng-submit="addComment()"
+      style="margin-top:30px;" ng-show="isLoggedIn()">
+  <h3>Add a new  comment</h3>
+  <div class="form-group">
+    <input type="text"  class="form-control" placeholder="Title" ng-model="title">
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      <textarea id="body" name="body" ng-model="body" type="text" placeholder="Comment" rows="5" class="form-control" required="" /></textarea>
+    </div>
+  </div>
+  <br>
+  <button type="submit" class="btn btn-primary">Add commnets</button>
+</form>
+<dir-pagination-controls pagination-id="comment"></dir-pagination-controls>
+<div ng-hide="isLoggedIn()">
+  <h3>You need to <a ui-sref="login">Log In</a> or <a ui-sref="register">Register</a> before you can comment.</h3>
+</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="modal-header">
+    <h1>Provider Information Edit Form</h1>
+</div>
+<div class="modal-body">
+    <!--<alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>-->
+    <form name="providerForm" class="form-horizontal">
+        <div class="control-group">
+            <label class="control-label" for="name"><strong>Name</strong></label>
+            <div class="controls">
+                <input id="name" name="name" ng-model="provider.name" type="text" placeholder="Name" class="form-control" required="" />
+            </div>
+        </div>
+        <br>
+        <div class="control-group">
+            <label class="control-label" for="url"><strong>Url</strong></label>
+            <div class="controls">
+                <input id="url" name="url" ng-model="provider.url" type="url" placeholder="Url" rows="5" class="form-control" required="" />
+            </div>
+        </div>
+
+    </form>
+</div>
+<div class="modal-footer">
+    <button ng-click="updateProvider(provider);ok()" class="btn btn-success"><i class="icon-white icon-plus"></i> Update & Close</button>
+    <!--<button ng-click="add()" type="submit" ng-if="!user.id" ng-disabled="user.$invalid || !user.tnc" class="btn btn-primary"><i class="icon-white icon-plus"></i> Add</button>-->
+    <button ng-click="cancel()" class="btn btn-warning">Cancel</button>
+</div>
+
+
+
+
+
+
+

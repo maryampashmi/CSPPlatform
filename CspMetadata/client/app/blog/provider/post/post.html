@@ -1,0 +1,58 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+<div class="page-header">
+  <h1>{{provider.name}}</h1>
+</div>
+<strong>Url: &nbsp;</strong>{{provider.url}} <br>
+<strong>why: &nbsp;</strong> <span ng-text-truncate="provider.description"  ng-tt-chars-threshold="330"></span>
+<br>
+<strong>services: &nbsp;</strong>{{provider.services}} <br><br>
+<strong>posts: &nbsp;</strong><br>
+<ul>
+  <li ng-repeat="post in provider.posts track by $index"  pagination-id="post">
+
+    <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(post)"></span>
+
+    <span style="font-size:18px; margin-left:10px;">
+         {{post.upvotes}}-&nbsp;  <strong>{{post.title}}</strong>| {{post.body | limitTo:20}}{{post.body > 20 ? '':'...'}} post by {{post.author}}
+          <span ng-if="post.comments.length !== 0">
+                <a ui-sref="comment({providerId: provider._id, postId : post._id})">{{post.comments.length}} Comments</a>
+              <button class="btn btn-xs btn-info pull-right"  ng-click="modalUpdatePost('lg',provider,post)">Edit</button>
+          </span>
+          <span ng-if="post.comments.length === 0">
+            <a  ui-sref="comment({providerId: provider._id, postId : post._id})">No Comments</a>
+               <button class="btn btn-xs btn-danger pull-right" ng-click="deletePost(post.title,provider._id,post._id)">Delete</button>
+              <button class="btn btn-xs btn-info pull-right"  ng-click="modalUpdatePost('lg',provider,post)">Edit</button>
+         </span>
+    </span>
+
+  </li>
+</ul>
+
+
+<form ng-submit="addPost()" style="margin-top:30px;" ng-show="isLoggedIn()">
+  <h3>Add a new post</h3>
+
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Title" ng-model="title">
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      <textarea id="body" name="body" ng-model="body" type="text" placeholder="Post" rows="5" class="form-control" required="" /></textarea>
+    </div>
+  </div>
+  <br>
+
+
+  <button type="submit" class="btn btn-primary">Add post</button>
+</form>
+
+<dir-pagination-controls pagination-id="post"></dir-pagination-controls>
+<div ng-hide="isLoggedIn()">
+  <h3>You need to <a ui-sref="login">Log In</a> or <a ui-sref="register">Register</a> before you can post.</h3>
+</div>
+    </div>
+  </div>
+</div>

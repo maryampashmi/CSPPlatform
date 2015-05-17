@@ -1,0 +1,17 @@
+<div ng-show="!collapsed" ng-click=collapseLink()>
+  <h4>URL: [+]<br /></h4><a  target="_blank" ng-href="{{provider.url}}" ng-click="linkModelFunc(provider.url)"> Go to main page</a>
+</div>
+
+<div ng-show="collapsed" ng-click=expandLink()>
+  <h4>URL: [-]</h4>
+</div>
+
+
+<!--
+<a class="navLinkHcp" href="{{hcpurl}}" title="Habitat Conservation Plan" target="_blank"
+   ng-click="linkModelFunc(hcpurl)">Habitat Conservation Plan</a>
+
+
+$scope.hcpurl = 'http://eahcp.org/index.php/about_eahcp/covered_species';-->
+
+

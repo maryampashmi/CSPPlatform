@@ -1,0 +1,27 @@
+<div class="modal-header">
+    <h1>Edit your comment</h1>
+</div>
+<div class="modal-body">
+
+    <form name="commentForm" class="form-horizontal">
+        <div class="control-group">
+            <label class="control-label" for="title"><strong>Title</strong></label>
+          <div class="controls">
+            <input id="title" name="title" ng-model="comment.title" type="text" placeholder="Title" class="form-control" required="" />
+          </div>
+        </div>
+      <br>
+      <div class="control-group">
+        <label class="control-label" for="body"><strong>Description</strong></label>
+        <div class="controls">
+          <textarea id="body" name="body" ng-model="comment.body"  type="text" placeholder="Description" rows="5" class="form-control" required="" /></textarea>
+        </div>
+      </div>
+
+    </form>
+</div>
+
+<div class="modal-footer">
+  <button ng-click="updateComment(comment);ok()" class="btn btn-success"><i class="icon-white icon-plus"></i> Update & Close</button>
+    <button ng-click="cancel()" class="btn btn-warning">Cancel</button>
+</div>

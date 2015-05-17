@@ -1,0 +1,55 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<section layout="row" flex>
+  <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+    <md-toolbar class="md-theme-indigo">
+      <h1 class="md-toolbar-tools">Polls</h1>
+    </md-toolbar>
+    <div class="" ng-controller="LeftCtrl">
+      <md-button ng-click="close()" class="md-primary" hide-gt-md>
+        Close Sidenav Left
+      </md-button>
+      <!--<p hide-md show-gt-md>-->
+      <!--</p>-->
+      <ul class="sidenav-menu">
+        <li class="" ng-repeat="section in sections">
+          <md-button ui-sref="{{section.link}}">
+            <i class="fa fa-fw {{section.icon}}"></i> {{section.title}}
+          </md-button>
+
+        </li>
+      </ul>
+    </div>
+  </md-sidenav>
+  <div flex class="md-padding" style="min-height: 500px;">
+    <div layout="column" layout-fill layout-align="center center">
+      <p>
+        <!--The left sidenav will 'lock open' on a medium (>=960px wide) device.-->
+      </p>
+      <div>
+        <md-button ng-click="toggleLeft()"
+                   class="md-primary" hide-gt-md>
+          Toggle left
+        </md-button>
+      </div>
+      <!--<div>-->
+      <!--<md-button ng-click="toggleRight()"-->
+      <!--class="md-primary">-->
+      <!--Toggle right-->
+      <!--</md-button>-->
+      <!--</div>-->
+    </div>
+    <div ui-view=""></div>
+  </div>
+</section>
+
+<div ng-include="'components/footer/footer.html'"></div>
+
+<script>
+  (function(w,d,s,g,js,fjs){
+    g=w.gapi||(w.gapi={});g.analytics={q:[],ready:function(cb){this.q.push(cb)}};
+    js=d.createElement(s);fjs=d.getElementsByTagName(s)[0];
+    js.src='https://apis.google.com/js/platform.js';
+    fjs.parentNode.insertBefore(js,fjs);js.onload=function(){g.load('analytics')};
+  }(window,document,'script'));
+</script>

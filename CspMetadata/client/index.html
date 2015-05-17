@@ -1,0 +1,155 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <base href="/">
+    <title>Cloud service provider crowdsourcing platform</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(client) app/vendor.css -->
+      <!-- bower:css -->
+      <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+      <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+      <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+      <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css({.tmp,client}) app/app.css -->
+   <!-- <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-superhero.min.css" />-->
+    <link rel="stylesheet" href="bower_components/angular-bootstrap/ui-bootstrap-csp.css" />
+    <link rel="stylesheet" href="app/app.css">
+    <!-- injector:css -->
+    <link rel="stylesheet" href="app/account/login/login.css">
+    <link rel="stylesheet" href="app/admin/admin.css">
+    <link rel="stylesheet" href="app/admin/usermanagement/usermanagement.css">
+    <link rel="stylesheet" href="app/app.css">
+    <link rel="stylesheet" href="app/blog/blog.css">
+    <link rel="stylesheet" href="app/blog/provider/post/comment/comment.css">
+    <link rel="stylesheet" href="app/blog/provider/post/comment/reply/reply.css">
+    <link rel="stylesheet" href="app/blog/provider/post/post.css">
+    <link rel="stylesheet" href="app/csa/csa.css">
+    <link rel="stylesheet" href="app/cspRegisterForm/cspRegisterForm.css">
+    <link rel="stylesheet" href="app/main/description/description.css">
+    <link rel="stylesheet" href="app/main/listOfServices/listOfServices.css">
+    <link rel="stylesheet" href="app/main/location/location.css">
+    <link rel="stylesheet" href="app/main/main.css">
+    <link rel="stylesheet" href="app/main/providerInfo/providerInfo.css">
+    <link rel="stylesheet" href="app/main/showLink/showLink.css">
+    <link rel="stylesheet" href="app/polls/polls.css">
+    <link rel="stylesheet" href="app/polls/type/legal/legal.css">
+    <link rel="stylesheet" href="app/polls/type/privacy/privacy.css">
+    <link rel="stylesheet" href="app/polls/type/security/security.css">
+    <link rel="stylesheet" href="app/supereditor/supereditor.css">
+    <link rel="stylesheet" href="app/supereditor/usermanagement/usermanagement.css">
+    <link rel="stylesheet" href="components/modal/modal.css">
+    <!-- endinjector -->
+    <!-- endbuild -->
+  </head>
+  <body ng-app="cspMetadataApp">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <div ui-view=""></div>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-XXXXX-X');
+      ga('send', 'pageview');
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+    <!-- build:js({client,node_modules}) app/vendor.js -->
+      <!-- bower:js -->
+      <script src="bower_components/jquery/dist/jquery.js"></script>
+      <script src="bower_components/angular/angular.js"></script>
+      <script src="bower_components/angular-resource/angular-resource.js"></script>
+      <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+      <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+      <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+      <script src="bower_components/lodash/dist/lodash.compat.js"></script>
+      <script src="bower_components/angular-socket-io/socket.js"></script>
+      <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+      <script src="bower_components/angular-animate/angular-animate.js"></script>
+      <script src="bower_components/angular-aria/angular-aria.js"></script>
+      <script src="bower_components/angular-material/angular-material.js"></script>
+      <script src="bower_components/d3/d3.js"></script>
+      <!-- endbower -->
+
+
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,client}) app/app.js -->
+        <script src="app/app.js"></script>
+          <!-- injector:js -->
+          <script src="app/account/account.js"></script>
+          <script src="app/account/login/login.controller.js"></script>
+          <script src="app/account/settings/settings.controller.js"></script>
+          <script src="app/account/signup/signup.controller.js"></script>
+          <script src="app/admin/admin.controller.js"></script>
+          <script src="app/admin/admin.js"></script>
+          <script src="app/admin/blogSettings/blogSettings.controller.js"></script>
+          <script src="app/admin/blogSettings/blogSettings.js"></script>
+          <script src="app/admin/usermanagement/usermanagement.controller.js"></script>
+          <script src="app/admin/usermanagement/usermanagement.js"></script>
+          <script src="app/blog/blog.controller.js"></script>
+          <script src="app/blog/blog.js"></script>
+          <script src="app/blog/provider/post/comment/comment.controller.js"></script>
+          <script src="app/blog/provider/post/comment/comment.js"></script>
+          <script src="app/blog/provider/post/comment/reply/reply.controller.js"></script>
+          <script src="app/blog/provider/post/comment/reply/reply.js"></script>
+          <script src="app/blog/provider/post/post.controller.js"></script>
+          <script src="app/blog/provider/post/post.js"></script>
+          <script src="app/csa/csa.controller.js"></script>
+          <script src="app/csa/csa.js"></script>
+          <script src="app/csa/data.json.js"></script>
+          <script src="app/cspRegisterForm/cspRegisterForm.controller.js"></script>
+          <script src="app/cspRegisterForm/cspRegisterForm.js"></script>
+          <script src="app/main/main.controller.js"></script>
+          <script src="app/main/main.js"></script>
+          <script src="app/polls/directives/questionMultiChoiceDirective.js"></script>
+          <script src="app/polls/directives/questionMultiCorrectDirective.js"></script>
+          <script src="app/polls/directives/questionTrueFalseDirective.js"></script>
+          <script src="app/polls/polls.controller.js"></script>
+          <script src="app/polls/polls.js"></script>
+          <script src="app/polls/type/legal/legal.controller.js"></script>
+          <script src="app/polls/type/legal/legal.js"></script>
+          <script src="app/polls/type/legal/legalFactory.js"></script>
+          <script src="app/polls/type/privacy/privacy.controller.js"></script>
+          <script src="app/polls/type/privacy/privacy.js"></script>
+          <script src="app/polls/type/security/security.controller.js"></script>
+          <script src="app/polls/type/security/security.js"></script>
+          <script src="app/supereditor/siteSettings/siteSettings.controller.js"></script>
+          <script src="app/supereditor/siteSettings/siteSettings.js"></script>
+          <script src="app/supereditor/supereditor.controller.js"></script>
+          <script src="app/supereditor/supereditor.js"></script>
+          <script src="app/supereditor/usermanagement/usermanagement.controller.js"></script>
+          <script src="app/supereditor/usermanagement/usermanagement.js"></script>
+          <script src="components/auth/auth.service.js"></script>
+          <script src="components/auth/user.service.js"></script>
+          <script src="components/countries/countryFactory.js"></script>
+          <script src="components/directive/d3-tree-directive.js"></script>
+          <script src="components/directive/ng-text-truncate.js"></script>
+          <script src="components/footer/footer.controller.js"></script>
+          <script src="components/modal/modal.service.js"></script>
+          <script src="components/mongoose-error/mongoose-error.directive.js"></script>
+          <script src="components/navbar/navbar.controller.js"></script>
+          <script src="components/provider/providerFactory.js"></script>
+          <script src="components/socket/socket.service.js"></script>
+          <!-- endinjector -->
+        <!-- endbuild -->
+</body>
+</html>

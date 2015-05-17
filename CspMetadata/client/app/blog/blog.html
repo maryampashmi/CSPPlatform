@@ -1,0 +1,48 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+<div class=" page-header">
+  <h1></h1>
+</div>
+<ul>
+  <li ng-repeat="provider in providers track by $index" current-page="currentPage" pagination-id="provider"> <!-- | orderBy:'-upvotes'-->
+        <span class="glyphicon glyphicon-thumbs-up"
+              ng-click="incrementUpvotes(provider)"></span>
+        <span style="font-size:18px; margin-left:10px;">
+                {{provider.upvotes}} - <strong>{{provider.name}}</strong>
+          <span ng-if="provider.posts.length !== 0">
+                <a ui-sref="post({providerId : provider._id})">{{provider.posts.length}} Posts </a>
+              <button class="btn btn-xs btn-info pull-right"  ng-click="modalUpdateProvider('lg',provider)">Edit</button>
+          </span>
+          <span ng-if="provider.posts.length === 0">
+            <a  ui-sref="post({providerId : provider._id})">No Posts</a>
+              <button class="btn btn-xs btn-danger pull-right" ng-click="deleteProvider(provider.name,provider._id)">Delete</button>
+              <button class="btn btn-xs btn-info pull-right"  ng-click="modalUpdateProvider('lg',provider)">Edit</button>
+         </span>
+    </span>
+    <span ng-show="provider.author"> posted by {{provider.author}} |  </span>
+  </li>
+</ul>
+
+<form ng-submit="addProvider()"
+      style="margin-top:30px;" ng-show="isLoggedIn()">
+  <h3>Add a new provider</h3>
+
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Name" ng-model="name">
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control"placeholder="Url" ng-model="url">
+  </div>
+  <button type="submit" class="btn btn-primary">Add Provider</button>
+</form>
+
+<dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)"  pagination-id="provider"></dir-pagination-controls>
+
+<div ng-hide="isLoggedIn()">
+  <h3>You need to <a ui-sref="login">Log In</a> or <a ui-sref="register">Register</a> before you can add a provider.</h3>
+</div>
+    </div>
+  </div>
+</div>

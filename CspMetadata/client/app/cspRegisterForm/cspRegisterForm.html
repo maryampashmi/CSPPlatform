@@ -1,0 +1,115 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<header class="hero-unit" >
+  <div class="container">
+    <h1>Cloud Provider Register Form</h1>
+    </div>
+</header>
+<div class="container">
+  <div class="row">
+
+      <br><br><br><br>
+    <form name="cspRegister" class="form-horizontal align-center col-lg-10" ng-submit="save()"  novalidate>
+            <div class="form-group">
+            <label class="col-lg-2 control-label">Company Name</label>
+            <div class="col-lg-10">
+              <input name="name" type="text" ng-model="provider.name" minlength="4" class="form-control" placeholder="Amazon Web Services" required>
+              <span class="help-block" ng-show="cspRegister.name.$dirty &&  cspRegister.name.$invalid"> Not valid name!</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-2 control-label">Abbreviated company name</label>
+            <div class="col-lg-10">
+              <input name="abbreviated" type="text" ng-model="provider.abbreviated" class="form-control" placeholder="AWS" >
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-2 control-label">Home page</label>
+            <div class="col-lg-10">
+              <input name="url" type="url"  ng-model="provider.url" class="form-control" placeholder="http://aws.amazon.com/" required>
+              <span class="help-block" ng-show="cspRegister.url.$error.url"> Not valid url!</span>
+            </div>
+          </div>
+
+         <!--start point of muli select-->
+        <div class="form-group">
+          <label class="col-lg-2 control-label">Product name</label>
+          <div class="col-lg-10">
+
+            <select name="services"  multiple ng-model="provider.services" class="form-control" required >
+              <option value="paas">Paas</option>
+              <option value="saas">Saas</option>
+              <option value="dbaas">Dbaas</option>
+
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label  class="col-lg-2 control-label">Location</label>
+          <div class="col-lg-10">
+            <!--<select name="locations"  multiple ng-model="provider.locations" class="form-control" required >
+
+              <option value="iiaas">Iiaas</option>
+              <option value="ppaas">Ppaas</option>
+              <option value="ssaas">Ssaas</option>
+              <option value="ddbaas">Ddbaas</option>
+
+            </select>-->
+
+            <select multiple  ng-model="provider.locations" class="form-control" class="form-control" required>
+              <option ng-repeat="item in locations" value="{{item.name}}">{{item.name}}</option>
+            </select>
+
+
+            <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
+          </div>
+        </div>
+       <!--end of multi selector-->
+
+          <div class="form-group">
+            <label class="col-lg-2 control-label">Description</label>
+            <div class="col-lg-10">
+              <textarea name="description" ng-model="provider.description" class="form-control" rows="3" required></textarea>
+
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+              <button type="button" class="btn btn-default">Cancel</button>
+              <button type="submit"  class="btn btn-primary" ng-disabled="cspRegister.$invalid">Submit</button>
+            </div>
+          </div>
+
+      </form
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>CrowdSourcing Platform v1.0.0
+        <!--| <a href="https://twitter.com/tyhenkel">@tyhenkel</a> |
+         <a href="https://github.com/DaftMonk/generator-angular-fullstack/issues?state=open">Issues</a></p>-->
+    </div>
+  </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
