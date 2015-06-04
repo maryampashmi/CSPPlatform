@@ -11,6 +11,7 @@ angular.module('cspMetadataApp')
       console.log('$scope.provider from comment ctrl', $scope.provider);
 
       $scope.isLoggedIn = Auth.isLoggedIn;
+      $scope.user = Auth.getCurrentUser();
 
       providers.getPost($stateParams.providerId,$stateParams.postId)
         .success(function() {

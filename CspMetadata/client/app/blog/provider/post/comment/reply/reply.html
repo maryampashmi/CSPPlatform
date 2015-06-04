@@ -7,21 +7,23 @@
       </div>
  <strong>Explanation: &nbsp;</strong> <span ng-text-truncate="comment.body"  ng-tt-chars-threshold="330"></span><br><br>
 <div ng-repeat="reply in comment.replies track by $index" >
-  <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(comment,reply)"></span>
+  <span class="glyphicon glyphicon-thumbs-up" ng-show="isLoggedIn()" ng-click="incrementUpvotes(comment,reply)"></span>
+  <span class="glyphicon glyphicon-thumbs-up" ng-hide="isLoggedIn()"></span>
+
         <span style="font-size:18px; margin-left:10px;">
          {{reply.upvotes}}-  &nbsp; reply by {{reply.author}}
         </span>
 
   <span ng-text-truncate="reply.body"  ng-tt-chars-threshold="70"></span>
 
-  <button class="btn btn-xs btn-info pull-right"  ng-click="modalUpdateReply('lg',comment,reply)">Edit</button>
-  <button class="btn btn-xs btn-danger pull-right" ng-click="deleteReply(reply._id,comment._id,reply._id)">Delete</button>
+  <button class="btn btn-xs btn-info pull-right" ng-show="isLoggedIn() && user.name === reply.author" ng-click="modalUpdateReply('lg',comment,reply)">Edit</button>
+  <button class="btn btn-xs btn-danger pull-right" ng-show="isLoggedIn() && user.name === reply.author" ng-click="deleteReply(reply._id,comment._id,reply._id)">Delete</button>
 </div>
 <form ng-submit="addReply()" style="margin-top:30px;" ng-show=" isLoggedIn()">  <!--here i added input parameter for reply, i am not sure if it is needed-->
   <h3>Add a new  reply</h3>
   <div class="control-group">
     <div class="controls">
-      <textarea id="body" name="body" ng-model="body" type="text" placeholder="Reply" rows="5" class="form-control" required="" /></textarea>
+      <textarea id="body" name="body" ng-model="body" type="text" placeholder="Reply" rows="5" class="form-control" required /></textarea>
     </div>
   </div>
   <br>

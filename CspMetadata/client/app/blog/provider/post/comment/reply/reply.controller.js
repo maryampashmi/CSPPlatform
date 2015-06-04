@@ -6,6 +6,7 @@ angular.module('cspMetadataApp')
     function($scope,providers,$stateParams,$modal, $log,Auth,Modal){
       console.log('$stateParams from reply ctrl', $stateParams);
       $scope.isLoggedIn = Auth.isLoggedIn;
+      $scope.user = Auth.getCurrentUser();
           //console.log($stateParams);
          /* $scope.provider=$stateParams.providerId;
           $scope.post = $stateParams.postId;*/

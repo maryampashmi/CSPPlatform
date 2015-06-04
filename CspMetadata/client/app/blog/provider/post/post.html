@@ -4,9 +4,7 @@
     <div class="col-sm-12">
 <div class="page-header">
   <h1 ng-click="incrementUpvotes(provider)" class="glyphicon glyphicon-thumbs-up">{{provider.upvotes}}&nbsp;{{provider.name}}</h1>
-
-              <button class="btn btn-xs btn-info"  ng-click="modalUpdateProvider('lg',provider)">Edit</button>
-
+  <button class="btn btn-xs btn-info" ng-show="isLoggedIn() && (user.name === 'Admin' || user.name === 'Editor' || user.name === 'Manager')" ng-click="modalUpdateProvider('lg',provider)">Edit</button>
 </div>
 <strong>Url: &nbsp;</strong>{{provider.url}} <br>
 <strong></strong> <span ng-text-truncate="provider.description"  ng-tt-chars-threshold="330"></span>
@@ -23,12 +21,12 @@
          {{post.upvotes}}-&nbsp;  <strong>{{post.title}}</strong>| {{post.body | limitTo:20}}{{post.body > 20 ? '':'...'}} post by {{post.author}}
           <span ng-if="post.comments.length !== 0">
                 <a ui-sref="comment({providerId: provider._id, postId : post._id})">{{post.comments.length}} Comments</a>
-              <button class="btn btn-xs btn-info pull-right"  ng-click="modalUpdatePost('lg',provider,post)">Edit</button>
+              <button class="btn btn-xs btn-info pull-right" ng-show="isLoggedIn() && user.name === post.author" ng-click="modalUpdatePost('lg',provider,post)">Edit</button>
           </span>
           <span ng-if="post.comments.length === 0">
             <a  ui-sref="comment({providerId: provider._id, postId : post._id})">No Comments</a>
                <button class="btn btn-xs btn-danger pull-right" ng-show="isLoggedIn() && user.name === post.author" ng-click="deletePost(post.title,provider._id,post._id)">Delete</button>
-              <button class="btn btn-xs btn-info pull-right"  ng-click="modalUpdatePost('lg',provider,post)">Edit</button>
+              <button class="btn btn-xs btn-info pull-right" ng-show="isLoggedIn() && user.name === post.author" ng-click="modalUpdatePost('lg',provider,post)">Edit</button>
          </span>
     </span>
 
