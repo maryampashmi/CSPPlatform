@@ -1,4 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false" />
+  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
+    <file url="file://$PROJECT_DIR$/CspMetadata/client/app/app.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CspMetadata/client/app/blog/provider/post/post.controller.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CspMetadata/client/app/blog/provider/post/post.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CspMetadata/client/app/blog/update_provider_model.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CspMetadata/client/app/polls/polls.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CspMetadata/client/app/polls/type/legal/legal.controller.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CspMetadata/client/app/polls/type/legal/legal.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CspMetadata/client/app/polls/type/legal/legal.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CspMetadata/client/components/provider/providerFactory.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CspMetadata/server/api/provider/post/comment/comment.controller.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CspMetadata/server/api/provider/post/comment/reply/reply.controller.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CspMetadata/server/api/provider/post/index.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CspMetadata/server/api/provider/post/post.controller.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CspMetadata/server/api/provider/provider.controller.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CspMetadata/server/api/provider/provider.model.js" charset="UTF-8" />
+  </component>
 </project>

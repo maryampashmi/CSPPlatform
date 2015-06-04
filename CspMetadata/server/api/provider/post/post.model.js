@@ -8,6 +8,7 @@ var PostSchema = new Schema({
   body: String,
   upvotes: {type: Number, default:0},
   author: String,
+  upvoteUser:{type : Array, default:[]},
   provider: { type: mongoose.Schema.Types.ObjectId, ref: 'Provider' },
   comments:[{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }]
 });

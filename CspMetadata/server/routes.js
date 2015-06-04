@@ -9,6 +9,10 @@ var errors = require('./components/errors');
 module.exports = function(app) {
 
   // Insert routes below
+  app.use('/api/providers/:providerId/certificates', require('./api/provider/certificates'));
+  app.use('/api/providers/:providerId/certificates/:certificateId/certControllers', require('./api/provider/certificates/certClauses'));
+  app.use('/api/providers/:providerId/certificates/:certificateId/certControllers/:certCtrId/certSubControllers', require('./api/provider/certificates/certClauses/certSubClauses'));
+
   app.use('/api/poll/security', require('./api/poll/security'));
   app.use('/api/poll/privacy', require('./api/poll/privacy'));
   app.use('/api/poll/legal', require('./api/poll/legal'));
@@ -20,7 +24,6 @@ module.exports = function(app) {
 
   app.use('/api/providers/:providerId/posts', require('./api/provider/post'));
   app.use('/api/providers', require('./api/provider'));
-
   app.use('/api/things', require('./api/thing'));
   app.use('/api/users', require('./api/user'));
 

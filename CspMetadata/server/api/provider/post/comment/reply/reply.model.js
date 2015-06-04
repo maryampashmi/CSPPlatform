@@ -8,6 +8,7 @@ var ReplySchema = new Schema({
   body: String,
   author: String,
   upvotes: {type: Number, default: 0},
+  upvoteUser:{type : Array, default:[]},
   comment: { type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }
 });
 

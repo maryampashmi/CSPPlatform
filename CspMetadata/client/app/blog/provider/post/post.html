@@ -3,17 +3,21 @@
   <div class="row">
     <div class="col-sm-12">
 <div class="page-header">
-  <h1>{{provider.name}}</h1>
+  <h1 ng-click="incrementUpvotes(provider)" class="glyphicon glyphicon-thumbs-up">{{provider.upvotes}}&nbsp;{{provider.name}}</h1>
+
+              <button class="btn btn-xs btn-info"  ng-click="modalUpdateProvider('lg',provider)">Edit</button>
+
 </div>
 <strong>Url: &nbsp;</strong>{{provider.url}} <br>
-<strong>why: &nbsp;</strong> <span ng-text-truncate="provider.description"  ng-tt-chars-threshold="330"></span>
+<strong></strong> <span ng-text-truncate="provider.description"  ng-tt-chars-threshold="330"></span>
 <br>
 <strong>services: &nbsp;</strong>{{provider.services}} <br><br>
 <strong>posts: &nbsp;</strong><br>
 <ul>
   <li ng-repeat="post in provider.posts track by $index"  pagination-id="post">
 
-    <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(post)"></span>
+    <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotesPost(post)" ng-show="isLoggedIn()"></span>
+    <span class="glyphicon glyphicon-thumbs-up" ng-hide="isLoggedIn()"></span>
 
     <span style="font-size:18px; margin-left:10px;">
          {{post.upvotes}}-&nbsp;  <strong>{{post.title}}</strong>| {{post.body | limitTo:20}}{{post.body > 20 ? '':'...'}} post by {{post.author}}
@@ -23,7 +27,7 @@
           </span>
           <span ng-if="post.comments.length === 0">
             <a  ui-sref="comment({providerId: provider._id, postId : post._id})">No Comments</a>
-               <button class="btn btn-xs btn-danger pull-right" ng-click="deletePost(post.title,provider._id,post._id)">Delete</button>
+               <button class="btn btn-xs btn-danger pull-right" ng-show="isLoggedIn() && user.name === post.author" ng-click="deletePost(post.title,provider._id,post._id)">Delete</button>
               <button class="btn btn-xs btn-info pull-right"  ng-click="modalUpdatePost('lg',provider,post)">Edit</button>
          </span>
     </span>

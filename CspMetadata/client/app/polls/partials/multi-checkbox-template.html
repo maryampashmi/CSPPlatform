@@ -1,0 +1,25 @@
+<script type="text/ng-template" id="multi-checkbox-template.html">
+    <h3>{{options.templateOptions.label}}</h3>
+    <div class="radio-group"
+         ng-class="{'has-error': options.formControl.$invalid}">
+        <label class="control-label">
+            {{options.label}}
+            {{options.required ? '*' : ''}}
+        </label>
+        <div class="radio"
+             ng-repeat="option in to.options">
+            <label>
+                <input type="checkbox"
+                       aria-describedby="{{id}}_description"
+                       ng-value="option.value"
+                       ng-model="$parent.model[$parent.options.key || $parent.index][option.name]">
+                {{option.name}}
+            </label>
+            <p id="{{id}}_description"
+               class="help-block"
+               ng-if="option.description">
+                {{option.description}}
+            </p>
+        </div>
+    </div>
+</script>

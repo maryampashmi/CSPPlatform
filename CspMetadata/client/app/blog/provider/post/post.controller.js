@@ -2,12 +2,14 @@
 
 angular.module('cspMetadataApp')
   .controller('PostCtrl',  [
-      '$scope','providers','$stateParams','$modal', '$log','Auth','Modal',
-      function($scope,providers,$stateParams,$modal, $log,Auth,Modal){
+      '$scope','providers','countries','$stateParams','$modal', '$log','Auth','Modal',
+      function($scope,providers,countries,$stateParams,$modal, $log,Auth,Modal){
         //$scope.providers = providers.providers;
         console.log('$stateParams from post ctrl', $stateParams);
         // console.log($scope.post.provider);
         $scope.isLoggedIn = Auth.isLoggedIn;
+        $scope.user = Auth.getCurrentUser();
+
 
         providers.get($stateParams.providerId)
           .success(function() {
@@ -73,12 +75,15 @@ angular.module('cspMetadataApp')
           $scope.title = '';
         };
 
-        $scope.incrementUpvotes = function(post) {
+        $scope.incrementUpvotesPost = function(post) {
           console.log('UNTIL POST EVERYTHINGS IS WORKING');
           providers.upvotePost($scope.provider, post);
         };
 
 
+        $scope.incrementUpvotes = function(provider) {
+          providers.upvote(provider);
+        };
 
         ///////////////////////*Using Modal Update from UI-bootstrapt*//////////////////////////////////////////
 
@@ -103,9 +108,10 @@ angular.module('cspMetadataApp')
                     // providers.getAllPosts;
                     $scope.status = 'Updated post! Refreshing post list.';
 
-                  }).
-                  error(function(error) {
-                    alert('Unable to update post: ' + error);
+                  })
+                  .error(function(err, status) {
+                    console.log(err);
+                    console.log(status);
                   });
               };
             },
@@ -124,6 +130,48 @@ angular.module('cspMetadataApp')
           });
         };
 
+        /*------using Modal from UI-bootstrap-----------------*/
 
+        $scope.modalUpdateProvider = function (size,provider) {
+          /*open a modal window to update a single provider record*/
+          var modalInstance = $modal.open({
+            templateUrl: 'app/blog/update_provider_model.html',
+
+            controller: function ($scope, $modalInstance, provider){
+              $scope.provider = provider;
+              $scope.locations = countries.locations;
+              $scope.ok = function () {
+                $modalInstance.close($scope.provider);
+              };
+              $scope.cancel = function () {
+                $modalInstance.dismiss('cancel');
+              };
+              $scope.updateProvider = function (updatedProvider) {
+                var provider = updatedProvider;
+                providers.updateProvider(provider)
+                  .success(function () {
+                    providers.getAll();
+                    $scope.status = 'Updated provider! Refreshing provider list.';
+                  })
+                  .error(function(err, status) {
+                    console.log(err);
+                    console.log(status);
+                  });
+              };
+            },
+            size: size,
+            resolve: {
+              provider: function () {
+                return provider;
+              }
+            }
+          });
+
+          modalInstance.result.then(function (selectedItem) {
+            $scope.selected = selectedItem;
+          }, function () {
+            $log.info('Modal dismissed at: ' + new Date());
+          });
+        };
 
       }]);

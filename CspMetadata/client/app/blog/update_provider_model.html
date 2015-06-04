@@ -2,27 +2,58 @@
     <h1>Provider Information Edit Form</h1>
 </div>
 <div class="modal-body">
-    <!--<alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>-->
-    <form name="providerForm" class="form-horizontal">
-        <div class="control-group">
-            <label class="control-label" for="name"><strong>Name</strong></label>
-            <div class="controls">
-                <input id="name" name="name" ng-model="provider.name" type="text" placeholder="Name" class="form-control" required="" />
-            </div>
+   <form name="providerForm" class="form-horizontal">
+      <div class="form-group">
+        <label class="col-lg-2 control-label">Company Name</label>
+        <div class="col-lg-10">
+          <input name="name" type="text" ng-model="provider.name" minlength="4" class="form-control" placeholder="Amazon Web Services" required>
+          <span class="help-block" ng-show="cspRegister.name.$dirty &&  cspRegister.name.$invalid"> Not valid name!</span>
         </div>
-        <br>
-        <div class="control-group">
-            <label class="control-label" for="url"><strong>Url</strong></label>
-            <div class="controls">
-                <input id="url" name="url" ng-model="provider.url" type="url" placeholder="Url" rows="5" class="form-control" required="" />
-            </div>
+      </div>
+      <div class="form-group">
+        <label class="col-lg-2 control-label">Abbreviated company name</label>
+        <div class="col-lg-10">
+          <input name="abbreviated" type="text" ng-model="provider.abbreviated" class="form-control" placeholder="AWS" >
         </div>
-
+      </div>
+      <div class="form-group">
+        <label class="col-lg-2 control-label">Home page</label>
+        <div class="col-lg-10">
+          <input name="url" type="url"  ng-model="provider.url" class="form-control" placeholder="http://aws.amazon.com/" required>
+          <span class="help-block" ng-show="cspRegister.url.$error.url"> Not valid url!</span>
+        </div>
+      </div>
+      <!--start point of muli select-->
+      <div class="form-group">
+        <label class="col-lg-2 control-label">Product name</label>
+        <div class="col-lg-10">
+          <select name="services"  multiple ng-model="provider.services" class="form-control" required >
+            <option value="paas">Paas</option>
+            <option value="saas">Saas</option>
+            <option value="dbaas">Dbaas</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label  class="col-lg-2 control-label">Location</label>
+        <div class="col-lg-10">
+          <select multiple  ng-model="provider.locations" class="form-control" class="form-control" required>
+            <option ng-repeat="item in locations" value="{{item.name}}">{{item.name}}</option>
+          </select>
+          <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
+        </div>
+      </div>
+      <!--end of multi selector-->
+      <div class="form-group">
+        <label class="col-lg-2 control-label">Description</label>
+        <div class="col-lg-10">
+          <textarea name="description" ng-model="provider.description" class="form-control" rows="3" required></textarea>
+        </div>
+      </div>
     </form>
 </div>
 <div class="modal-footer">
     <button ng-click="updateProvider(provider);ok()" class="btn btn-success"><i class="icon-white icon-plus"></i> Update & Close</button>
-    <!--<button ng-click="add()" type="submit" ng-if="!user.id" ng-disabled="user.$invalid || !user.tnc" class="btn btn-primary"><i class="icon-white icon-plus"></i> Add</button>-->
     <button ng-click="cancel()" class="btn btn-warning">Cancel</button>
 </div>
 

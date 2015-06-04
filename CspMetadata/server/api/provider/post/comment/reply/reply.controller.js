@@ -52,6 +52,11 @@ exports.create = function(req, res) {
     if (!comment) {
       return res.status(404).send('Comment not found');
     }
+    if(req.user===undefined){//if user is not signed in  go to login page
+      return res.status(401).end();
+    }
+    req.body.author = req.user.name;
+    console.log("user",req.user);
 
     Reply.create(req.body, function (err, reply) {
       console.log('req.body',req.body);
@@ -59,7 +64,10 @@ exports.create = function(req, res) {
         return handleError(res, err);
       }
 
-      comment.replies.push(reply.id);
+      comment.replies.push(reply._id);
+      //console.log('req.user._id',req.user._id);
+      //comment.
+      //reply.author = req.user._id, // this is i add user._id into author of reply.
       comment.save(function (err) {
         if (err) return handleError(res, err);
         return res.status(201).json(reply);
@@ -75,6 +83,11 @@ exports.update = function(req, res) {
   Reply.findById(req.params.id, function (err, reply) {
     if (err) { return handleError(res, err); }
     if(!reply) { return res.send(404); }
+
+    if((req.user===undefined)||(reply.author != req.user.name && req.user.role !== "admin")) {
+
+      return res.status(401).end();
+    }
     var updated = _.merge(reply, req.body);
     updated.save(function (err) {
       if (err) { return handleError(res, err); }
@@ -94,6 +107,8 @@ exports.destroy = function (req, res) {
     if (!comment) {
       return res.status(404).send('Comment not found');
     }
+    console.log("req.params.id",req.params.id);
+
     Reply.findById(req.params.id, function (err, reply) {
       console.log('replyId', JSON.stringify(req.url));
       console.log('reply', JSON.stringify(reply));
@@ -103,11 +118,13 @@ exports.destroy = function (req, res) {
       if (!reply) {
         return res.send(404).end('Reply not found');
       }
-    /* if(reply.author != req.user._id ) {
-      console.log('reply.author',req.user._id);
-      return res.status(401).end();
-    }*/
+      console.log('req.user',req.user);
+      console.log('reply.author',reply.author);
 
+     if((req.user===undefined)||(reply.author != req.user.name && req.user.role !== "admin")) {
+
+      return res.status(401).end();
+    }
       reply.remove(function (err) {
         if (err) {
           return handleError(res, err);
@@ -127,27 +144,6 @@ exports.destroy = function (req, res) {
   });
 };
 
-/*exports.destroy = function(req, res) {
-
-  // Will print the user trying to delete the reply
-  console.log('User: ', req.user);
-
-  Reply.findById(req.params.id, function (err, reply) {
-    if(err) { return handleError(res, err); }
-    if(!reply) { return res.send(404); }
-
-    *//*if(reply.author != req.user._id ) {
-      console.log('reply.author',req.user._id);
-      return res.status(401).end();
-    }*//*
-
-    reply.remove(function(err) {
-      if(err) { return handleError(res, err); }
-      return res.send(204);
-    });
-  });
-};*/
-
 // upvote a reply from the DB.
 
   exports.upvote = function (req, res) {
@@ -155,13 +151,39 @@ exports.destroy = function (req, res) {
     Reply.findById(req.params.id, function (err, reply) {
       if (err) return handleError(res, err);
       if (!reply) return res.status(404).end('Reply not found');
-      reply.upvotes++;
-      //console.log('COMMENT FROM API',reply.upvotes);
-      reply.save(function (err) {
-        if (err) return handleError(res, err);
-        console.log('res from api UPVOTING REPLY',res.body); //response is null
+
+      if(req.user===undefined){//if user is not signed in  go to login page
+        return res.status(401).end();
+      }
+      console.log("reply", reply);
+
+      if(reply.author === req.user.name){
+        res.write("Novote");//user cannot upvote his post
         return res.status(200).end();
-      })
+      }
+      if(reply.upvoteUser.indexOf(req.user.name)<0){//list of user that already upvoted.
+        reply.upvotes++;
+        reply.upvoteUser.push(req.user.name);
+
+        reply.save(function (err) {
+          if (err) return handleError(res, err);
+
+          console.log('res from api UPVOTING REPLY',res.body); //response is null
+
+          res.write("Upvote");
+          return res.status(200).end();
+        })
+      }else{
+        reply.upvotes--;
+        reply.upvoteUser.pop(req.user.name);
+
+        reply.save(function (err) {
+          if (err) return handleError(res, err);
+          console.log('res from api UPVOTING REPLY',res.body); //response is null
+          res.write("Downvote");
+          return res.status(200).end();
+        })
+      }
     });
   };
 

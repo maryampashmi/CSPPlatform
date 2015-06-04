@@ -2,6 +2,7 @@
 
 var _ = require('lodash');
 var Provider = require('./provider.model');
+var config = require('../../config/environment');
 
 // Get list of providers
 exports.index = function(req, res) {
@@ -20,26 +21,64 @@ exports.show = function(req, res) {
   });
 };
 
-// Creates a new provider in the DB.
+/// Creates a new provider in the DB.
 exports.create = function(req, res) {
-  console.log(req.body);
+ // console.log("req.user.name",req.user);
+
+  if(config.userRoles.indexOf(req.user.role) < config.userRoles.indexOf('admin')) {
+    return res.status(401).send('You need to be an admin to create posts');
+  }
+
+  console.log("req",req.user);
+  //req.body.author = req.user.name;
   Provider.create(req.body, function(err, provider) {
     if(err) { return handleError(res, err); }
     return res.json(201, provider);
   });
+
 };
+
+
 // Creates upvote in the DB.
 exports.upvote = function(req, res) {
   Provider.findById(req.params.id, function(err, provider) {
     if(err) return handleError(res, err);
     if(!provider) return res.status(404).end('Provider not found');
-    provider.upvotes++;
-    provider.save(function(err) {
-      if(err) return handleError(res, err);
+
+    if(req.user===undefined){//if user is not signed in  go to login page
+      return res.status(401).end();
+    }
+
+    if(provider.author === req.user.name){
+      res.write("Novote");//user cannot upvote his post
       return res.status(200).end();
-    })
+    }
+    if(provider.upvoteUser.indexOf(req.user.name)<0){//list of user that already upvoted.
+      provider.upvotes++;
+      provider.upvoteUser.push(req.user.name);
+
+      provider.save(function (err) {
+        if (err) return handleError(res, err);
+
+        console.log('res from api UPVOTING REPLY',res.body); //response is null
+
+        res.write("Upvote");
+        return res.status(200).end();
+      })
+    }else{
+      provider.upvotes--;
+      provider.upvoteUser.pop(req.user.name);
+
+      provider.save(function (err) {
+        if (err) return handleError(res, err);
+        console.log('res from api UPVOTING REPLY',res.body); //response is null
+        res.write("Downvote");
+        return res.status(200).end();
+      })
+    }
   });
 };
+
 
 // Updates an existing provider in the DB.
 exports.update = function(req, res) {
@@ -47,7 +86,17 @@ exports.update = function(req, res) {
   Provider.findById(req.params.id, function (err, provider) {
     if (err) { return handleError(res, err); }
     if(!provider) { return res.send(404); }
+
+    console.log('req.body from providers api',req.body);
     var updated = _.merge(provider, req.body);
+
+    /*delete req.body.posts;
+    var updated = _.merge(provider, req.body);
+// now updates.posts should only have 2 IDs mentioned above
+    updated.save(...
+*/
+    console.log('updatedDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD',updated)
+
     updated.save(function (err) {
       if (err) { return handleError(res, err); }
       return res.json(200, provider);
@@ -60,6 +109,10 @@ exports.destroy = function(req, res) {
   Provider.findById(req.params.id, function (err, provider) {
     if(err) { return handleError(res, err); }
     if(!provider) { return res.send(404); }
+
+    if(req.user.role === "admin" || req.user.role !== "super editor" && req.body.author !== provider.author ){
+      return res.send(401).end('Unauthorise user to delete');
+    }
     provider.remove(function(err) {
       if(err) { return handleError(res, err); }
       return res.send(204);

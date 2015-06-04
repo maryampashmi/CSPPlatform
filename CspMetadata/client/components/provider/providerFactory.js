@@ -149,7 +149,11 @@ angular.module('cspMetadataApp')
         return $http.put('/api/providers/' + provider._id + '/upvote',null, {
             headers: {Authorization: 'Bearer '+Auth.getToken()}
         }).success(function(data){
+              if(data === "Upvote"){//if response is upvote we should increese vote count by 1
                 provider.upvotes += 1;
+              }else if(data === "Downvote"){
+                provider.upvotes -= 1;
+              }
             });
     };
 
@@ -162,8 +166,11 @@ angular.module('cspMetadataApp')
         return $http.put('/api/providers/' + provider._id + '/posts/'+ post._id + '/upvote',null, {
             headers: {Authorization: 'Bearer '+Auth.getToken()}
         }).success(function(data){
-
+              if(data === "Upvote"){//if response is upvote we should increese vote count by 1
                 post.upvotes += 1;
+              }else if(data === "Downvote"){
+                post.upvotes -= 1;
+              }
             });
     };
 
@@ -172,13 +179,15 @@ angular.module('cspMetadataApp')
         //console.log("Calling upvoteComment function on providerFactory.js")
         //console.log("PROVIDER -> ", provider)
         //console.log("POST -> ", post)
-        //console.log("COMMENT -> ", comment)
-
+        //console.log("COMMENT -> ", comment
         return $http.put('/api/providers/' + provider + '/posts/'+ post._id +  '/comments/' + comment._id + '/upvote',null, {
             headers: {Authorization: 'Bearer '+Auth.getToken()}
         }).success(function(data){
-
+              if(data === "Upvote"){//if response is upvote we should increese vote count by 1
                 comment.upvotes += 1;
+              }else if(data === "Downvote"){
+                comment.upvotes -= 1;
+              }
             });
     };
 
@@ -193,7 +202,11 @@ angular.module('cspMetadataApp')
         return $http.put('/api/providers/' + provider + '/posts/'+ post +  '/comments/' + comment._id + '/replies/' + reply._id + '/upvote',null,{
             headers: {Authorization: 'Bearer '+Auth.getToken()}
         }).success(function(data){
-                reply.upvotes += 1;
+                if(data === "Upvote"){//if response is upvote we should increese vote count by 1
+                  reply.upvotes += 1;
+                }else if(data === "Downvote"){
+                  reply.upvotes -= 1;
+                }
         });
     };
 
@@ -233,11 +246,10 @@ angular.module('cspMetadataApp')
     ob.updateProvider = function (provider) {
         //console.log("Calling upvoteReply function on providerFactory.js")
         // console.log("PROVIDER -> ", provider1)
-
         return $http.put('/api/providers/' + provider._id , provider, {
             headers: {Authorization: 'Bearer '+Auth.getToken()}
             }).success(function(provider){
-              ob.providers.push(provider);
+             // ob.providers.push(provider);
                // angular.copy(provider1, ob.providers);
             })
     };
@@ -248,8 +260,6 @@ angular.module('cspMetadataApp')
         //console.log("POST -> ", post)
        // providerId= post.provider;
       //  console.log('CALL FUNC FROM provider factory,update post',providerId);
-
-
         return $http.put('/api/providers/' + provider._id + '/posts/'+ post._id , post, {
             headers: {Authorization: 'Bearer '+Auth.getToken()}
         }).success(function(post){

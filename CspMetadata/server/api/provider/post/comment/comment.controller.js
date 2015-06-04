@@ -56,12 +56,20 @@ exports.create = function(req, res) {
       if (!post) {
         return res.status(404).send('Post not found');
       }
+
+      if(req.user===undefined){//if user is not signed in  go to login page
+        return res.status(401).end();
+      }
+
+      req.body.author = req.user.name;
+      console.log("user",req.user);
+
       Comment.create(req.body, function (err, comment) {
         console.log('req.body',req.body);
         if (err) {
           return handleError(res, err);
         }
-        post.comments.push(comment.id);
+        post.comments.push(comment._id);
         post.save(function (err) {
           if (err) return handleError(res, err);
           return res.status(201).json(comment);
@@ -83,6 +91,12 @@ exports.create = function(req, res) {
       if (!comment) {
         return res.send(404);
       }
+
+      if((req.user===undefined)||(comment.author != req.user.name && req.user.role !== "admin")) {
+
+        return res.status(401).end();
+      }
+
       var updated = _.merge(comment, req.body);
       updated.save(function (err) {
         if (err) {
@@ -102,8 +116,10 @@ exports.create = function(req, res) {
         return handleError(res, err);
       }
       if (!post) {
-        return res.status(404).send('Post not found');
+        return res.status(404).send('post not found');
       }
+      console.log("req.params.id",req.params.id);
+
       Comment.findById(req.params.id, function (err, comment) {
         console.log('commentId', JSON.stringify(req.url));
         console.log('comment', JSON.stringify(comment));
@@ -113,12 +129,19 @@ exports.create = function(req, res) {
         if (!comment) {
           return res.send(404).end('Comment not found');
         }
+        console.log('req.user',req.user);
+        console.log('comment.author',comment.author);
+
+        if((req.user===undefined)||(comment.author != req.user.name && req.user.role !== "admin")) {
+
+          return res.status(401).end();
+        }
         comment.remove(function (err) {
           if (err) {
             return handleError(res, err);
           }
 
-          // Remove the post ID from provider.posts
+          // Remove the comment ID from provider.comments
           post.comments = _.filter(post.comments, function (x) {
             return x != req.params.id
           });
@@ -137,18 +160,44 @@ exports.create = function(req, res) {
     console.log('inside upvote');
     Comment.findById(req.params.id, function (err, comment) {
       if (err) return handleError(res, err);
-      if (!comment) return res.status(404).end('Comment not found');
-      comment.upvotes++;
-      //console.log('COMMENT FROM API',comment.upvotes);
-      comment.save(function (err) {
-        if (err) return handleError(res, err);
-        console.log('res from api UPVOTING COMMENT',res.body); //response is null
+      if (!comment) return res.status(404).end('Reply not found');
+
+      console.log("comment", comment);
+
+      if(req.user===undefined){//if user is not signed in  go to login page
+        return res.status(401).end();
+      }
+
+      if(comment.author === req.user.name){
+        res.write("Novote");//user cannot upvote his comment
         return res.status(200).end();
-      })
+      }
+      if(comment.upvoteUser.indexOf(req.user.name)<0){//list of user that already upvoted.
+        comment.upvotes++;
+        comment.upvoteUser.push(req.user.name);
+
+        comment.save(function (err) {
+          if (err) return handleError(res, err);
+
+          console.log('res from api UPVOTING REPLY',res.body); //response is null
+
+          res.write("Upvote");
+          return res.status(200).end();
+        })
+      }else{
+        comment.upvotes--;
+        comment.upvoteUser.pop(req.user.name);
+
+        comment.save(function (err) {
+          if (err) return handleError(res, err);
+          console.log('res from api UPVOTING REPLY',res.body); //response is null
+          res.write("Downvote");
+          return res.status(200).end();
+        })
+      }
     });
   };
 
-
-  function handleError(res, err) {
+function handleError(res, err) {
     return res.send(500, err);
   }

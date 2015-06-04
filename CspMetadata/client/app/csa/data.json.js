@@ -1,11 +1,14 @@
 /**
  * Created by pasma08 on 16/05/2015.
- */
+ *//*
+
+*/
 /*http://bl.ocks.org/mbostock/1153292
 * http://bost.ocks.org/mike/hive/
 * http://bl.ocks.org/mbostock/4063550
 * http://mbostock.github.io/d3/talk/20111018/tree.html
-* http://xliberation.com/googlecharts/d3concept.html*/
+* http://xliberation.com/googlecharts/d3concept.html*//*
+
 $scope.data = {
   name: "certificates",
   id: "cert-root",
@@ -529,3 +532,4 @@ $scope.data = {
 };
 })
 
+*/

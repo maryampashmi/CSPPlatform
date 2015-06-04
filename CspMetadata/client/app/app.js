@@ -9,16 +9,46 @@ angular.module('cspMetadataApp', [
   'ui.bootstrap',
   'ngMaterial',
   "ngTextTruncate",
-  'd3-multi-parent'
+  'd3-multi-parent',
+  'formly',
+  'formlyBootstrap'
 ])
 
-  .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+  .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider,formlyConfigProvider) {
     $urlRouterProvider
       .otherwise('/');
 
     $locationProvider.html5Mode(true);
     $httpProvider.interceptors.push('authInterceptor');
+
+    formlyConfigProvider.setType([
+      {
+        name: 'multi-checkbox',
+        templateUrl: 'multi-checkbox-template.html',
+        wrapper: ['bootstrapLabel', 'bootstrapHasError']
+      },{
+        name: 'well-multi-checkbox',
+        templateUrl: 'well-multi-checkbox-template.html',
+        wrapper: ['bootstrapLabel', 'bootstrapHasError']
+      },{
+        name: 'well-text',
+        templateUrl: 'well-text.html',
+        wrapper: ['bootstrapHasError']
+      }/*,{
+       name: 'well-number',
+       templateUrl: 'well-number.html',
+       wrapper: ['bootstrapLabel', 'bootstrapHasError']
+       }*/
+    ]);
+    /*formlyConfigProvider.setTemplateUrl('multi-checkbox', './polls/partials/multi-checkbox-template.html');
+     formlyConfigProvider.setTemplateUrl('well-multi-checkbox', './polls/partials/well-multi-checkbox-template.html');
+     formlyConfigProvider.setTemplateUrl('well-text', './polls/partials/well-text.html');
+     formlyConfigProvider.setTemplateUrl('well-number', './polls/partials/well-number.html');
+     formlyConfigProvider.setTemplateUrl('section-title', './polls/partials/section-title.html');*/
+
+
   })
+
 
   .factory('authInterceptor', function ($rootScope, $q, $cookieStore, $location) {
     return {
@@ -55,4 +85,22 @@ angular.module('cspMetadataApp', [
         }
       });
     });
-  });
+  })
+/*.run(function(formlyConfigProvider) {
+ formlyConfigProvider.setType(
+ {
+ name: 'multi-checkbox',
+ templateUrl: './polls/partials/multi-checkbox-template.html'
+ },{
+ name: 'well-multi-checkbox',
+ templateUrl: './polls/partials/well-multi-checkbox-template.html'
+ },{
+ name: 'well-text',
+ templateUrl: './polls/partials/well-text.html'
+ },{
+ name: 'well-number',
+ templateUrl: './polls/partials/well-number.html'
+ }
+ );
+ });
+ */
