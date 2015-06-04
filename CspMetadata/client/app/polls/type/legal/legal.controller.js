@@ -5,7 +5,7 @@ angular.module('cspMetadataApp')
       function ($scope) {
 
         $scope.formFields = [{
-          "key" : "S1",
+          "key" : "L1",
           "type" : "radio",
           templateOptions : {
             "label" : "1. Does your organization allocate dedicated IP addresses to serve SSL content at each edge location?",
@@ -20,7 +20,7 @@ angular.module('cspMetadataApp')
             ]
           }
         }, {
-          "key" : "S2",
+          "key" : "L2",
           "type" : "radio",
           templateOptions : {
             "label" : "2. Does your firm allow multiple domains to serve SSL traffic over the same IP address?",
@@ -35,7 +35,7 @@ angular.module('cspMetadataApp')
             ]
           }
         }, {
-          "key" : "S3",
+          "key" : "L3",
           "type" : "radio",
           templateOptions : {
             "label" : "3. Does your organization support SSH connection (Secure Shell) for the customers?",
@@ -50,7 +50,7 @@ angular.module('cspMetadataApp')
             ]
           }
         }, {
-          "key" : "S4",
+          "key" : "L4",
           "type" : "radio",
           templateOptions : {
             "label" : "4. Does your organization provide data encryption for the customers?",
@@ -65,7 +65,7 @@ angular.module('cspMetadataApp')
             ]
           }
         },{
-          "key" :"S4hiddenWhenUnchecked",
+          "key" :"L4hiddenWhenUnchecked",
           "type" : "well-multi-checkbox",
           templateOptions : {
             "label" : "5. At what stage is the data encrypted?",
@@ -86,16 +86,16 @@ angular.module('cspMetadataApp')
               }
             ]
           },
-          hideExpression: "model.S4 !== 'yes'"
+          hideExpression: "model.L4 !== 'yes'"
          },{
-            "key": "S4hiddenWhenUncheckedOther",
+            "key": "L4hiddenWhenUncheckedOther",
             "type": "well-text",
              templateOptions : {
             "label": "Please write down if your company is using other types of data encryption?",
              },
-          hideExpression: "!model.S4hiddenWhenUnchecked.Other"
+          hideExpression: "!model.L4hiddenWhenUnchecked.Other"
         },{
-          "key" : "S5",
+          "key" : "L5",
           "type" : 'multi-checkbox',
           "templateOptions" : {
             "label" : "5. Which of the certificates that guarantee physical security are held by organization?",
@@ -147,14 +147,14 @@ angular.module('cspMetadataApp')
             ]
           }
         },{
-          "key": "s5other",
+          "key": "L5other",
           "type": "well-text",
           templateOptions : {
             "label": "Please write any other certifications that you have?",
           },
-          hideExpression: "!model.S5.other"
+          hideExpression: "!model.L5.other"
         },{
-          key: 'S6',
+          key: 'L6',
           type: 'textarea',
           templateOptions: {
             label: "6. What sort of firewalls and detection systems are in operation to guard against malicious network activity or system attacks?",
@@ -163,7 +163,7 @@ angular.module('cspMetadataApp')
             rows: 5
           }
         },{
-            "key": "S7",
+            "key": "L7",
             "type": "radio",
             templateOptions: {
             "label": "7. Does your organization consider incident response plan in case of the aftermath of a security breach or attack?",
@@ -180,7 +180,7 @@ angular.module('cspMetadataApp')
             ]
           }
        },{
-          "key": "S8",
+          "key": "L8",
           "type": "radio",
           templateOptions: {
             "label": "8. Does your organization allow customers to implement their own security architecture?",
@@ -196,7 +196,7 @@ angular.module('cspMetadataApp')
             ]
           }
         },{
-          "key": "S9",
+          "key": "L9",
           "type": "radio",
           templateOptions: {
             "label": "9. Does your organization allow customers to implement their own security architecture?",
@@ -212,7 +212,7 @@ angular.module('cspMetadataApp')
             ]
           }
         },{
-          "key": "S10",
+          "key": "L10",
           "type": "radio",
           templateOptions: {
             "label": "9.  Does your organization allow customers to secure and manage access from clients such as PC and mobile devices?",
@@ -228,7 +228,7 @@ angular.module('cspMetadataApp')
             ]
           }
         },{
-          key: 'S11',
+          key: 'L11',
           type: 'input',
           templateOptions: {
             type: 'number',
@@ -237,7 +237,7 @@ angular.module('cspMetadataApp')
 
           }
         },{
-          key: 'S12',
+          key: 'L12',
           type: 'input',
           templateOptions: {
             type: 'number',
@@ -246,7 +246,7 @@ angular.module('cspMetadataApp')
 
           }
         },{
-          key: 'S13',
+          key: 'L13',
           type: 'input',
           templateOptions: {
             type: 'number',
@@ -255,7 +255,7 @@ angular.module('cspMetadataApp')
 
           }
         }, {
-          "key" : "S14",
+          "key" : "L14",
           "type" : "radio",
           templateOptions : {
           "label" : "14. Are all the cloud services available in all the regions?",
@@ -277,7 +277,7 @@ angular.module('cspMetadataApp')
             "placeholder": "Ec2",
 
           },
-          hideExpression: "model.S14 !== 'no'"
+          hideExpression: "model.L14 !== 'no'"
         }
         ];
 
