@@ -11,6 +11,8 @@ angular.module('cspMetadataApp')
         $scope.user = Auth.getCurrentUser();
 
 
+
+
         providers.get($stateParams.providerId)
           .success(function() {
             $scope.provider = providers.current;

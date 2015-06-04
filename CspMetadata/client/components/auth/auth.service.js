@@ -142,6 +142,7 @@ angular.module('cspMetadataApp')
        * @return {Boolean}
        */
       isUser: function() {
+       // console.log('currentUser.role',currentUser.role);
         return currentUser.role === 'user';
       },
 

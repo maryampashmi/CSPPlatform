@@ -16,6 +16,11 @@
     <file url="file://$PROJECT_DIR$/CspMetadata/client/app/polls/type/legal/legal.controller.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CspMetadata/client/app/polls/type/legal/legal.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CspMetadata/client/app/polls/type/legal/legal.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CspMetadata/client/app/polls/type/privacy/privacy.controller.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CspMetadata/client/app/polls/type/privacy/privacy.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CspMetadata/client/app/polls/type/security/security.controller.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CspMetadata/client/app/polls/type/security/security.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CspMetadata/client/components/auth/auth.service.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CspMetadata/client/components/provider/providerFactory.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CspMetadata/server/api/provider/post/comment/comment.controller.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CspMetadata/server/api/provider/post/comment/reply/reply.controller.js" charset="UTF-8" />
@@ -23,5 +28,6 @@
     <file url="file://$PROJECT_DIR$/CspMetadata/server/api/provider/post/post.controller.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CspMetadata/server/api/provider/provider.controller.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CspMetadata/server/api/provider/provider.model.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CspMetadata/server/config/seed.js" charset="UTF-8" />
   </component>
 </project>

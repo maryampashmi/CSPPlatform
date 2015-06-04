@@ -1,3 +1,133 @@
-<div class="col-md-12">
-This is the privacy view.
+<style>
+
+
+  div.form1 {
+    /*background-color: rgba(139, 128, 208, 0.27);*/
+    margin-left: 5px;
+
+  }
+
+  .form1 {
+    border-color:#5bc0de ;
+    color:black;
+    border: groove;
+    border-color: #4d5d7b;
+    padding-bottom: 10px;
+    border-width: thick;
+    border-radius: 10px;
+  }
+  #header{
+    background-color: #4c5c7a;
+    text-align: center;
+    color: #ffffff;
+    margin-top: -26px;
+    height: 64px;
+  }
+
+  #header h3 {
+    color: #ffffff;
+    padding-top: 20px;
+
+  }
+</style>
+
+
+<div id="header" class="header">
+  <h3 class="text-muted">Privacy Questionaree</h3>
+
+</div>
+<br/>
+<div class="row">
+  <div class="col-lg-3"></div>
+  <div class="form1 col-lg-6">
+
+    <div>
+      <div class="row">
+        <div class="col-lg-12">
+
+          <br/>
+          <formly-form model="formData" fields="formFields" form="inputForm"></formly-form>
+          <pre>{{formData | json}}</pre>
+        </div></div>
+    </div>
+    <script type="text/ng-template" id="multi-checkbox-template.html">
+
+      <div class="radio-group"
+           ng-class="{'has-error': options.formControl.$invalid}">
+        <label class="control-label">
+          {{options.label}}
+          {{options.required ? '*' : ''}}
+        </label>
+        <div class="radio"
+             ng-repeat="option in to.options">
+          <label>
+            <input type="checkbox"
+                   aria-describedby="{{id}}_description"
+                   ng-value="option.value"
+                   ng-model="$parent.model[$parent.options.key || $parent.index][option.name]">
+            {{option.name}}
+          </label>
+          <p id="{{id}}_description"
+             class="help-block"
+             ng-if="option.description">
+            {{option.description}}
+          </p>
+        </div>
+      </div>
+    </script>
+    <script type="text/ng-template" id="well-multi-checkbox-template.html">
+
+      <div class="well">
+        <div class="radio-group"
+             ng-class="{'has-error': options.formControl.$invalid}">
+          <label class="control-label">
+            {{options.label}}
+            {{options.required ? '*' : ''}}
+          </label>
+          <div class="radio"
+               ng-repeat="option in to.options">
+            <label>
+              <input type="checkbox"
+                     aria-describedby="{{id}}_description"
+                     ng-value="option.value"
+                     ng-model="$parent.model[$parent.options.key || $parent.index][option.name]">
+              {{option.name}}
+            </label>
+            <p id="{{id}}_des"
+               class="help-block"
+               ng-if="option.description">
+              {{option.description}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </script>
+    <script type="text/ng-template" id="well-text.html">
+      <div class="well">
+        <div class=form-group
+             ng-class="{'has-error': options.formField.$invalid}">
+          <label>
+            {{to.label || 'Text'}}
+            {{options.required ? '*' : ''}}
+          </label>
+          <input type="text"
+                 class=form-control
+                 aria-describedby="{{id}}_description"
+                 ng-disabled="options.disabled"
+                 ng-model="$parent.model[options.key || index]">
+          <p id="{{id}}_description"
+             class="help-block"
+             ng-if="options.description">
+            {{options.description}}
+          </p>
+        </div>
+      </div>
+    </script>
+  </div>
+  <div class="col-lg-3"></div>
+</div>
+<footer class="footer">
+  <hr/>
+  <small>Copyright &copy; CA Technologies - Labs EMEA</small>
+</footer>
 </div>
