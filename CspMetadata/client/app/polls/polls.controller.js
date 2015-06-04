@@ -8,7 +8,7 @@ angular.module('cspMetadataApp')
         icon: 'fa-home',
         link: 'polls.legal'
       }, {
-        title: 'Policy',
+        title: 'Privacy',
         icon: 'fa-user',
         link: 'polls.privacy'
       }, {
