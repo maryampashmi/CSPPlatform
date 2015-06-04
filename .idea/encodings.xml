@@ -9,6 +9,9 @@
     <file url="file://$PROJECT_DIR$/CspMetadata/client/app/blog/provider/post/post.controller.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CspMetadata/client/app/blog/provider/post/post.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CspMetadata/client/app/blog/update_provider_model.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CspMetadata/client/app/cspRegisterForm/cspRegisterForm.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CspMetadata/client/app/main/main.controller.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CspMetadata/client/app/main/main.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CspMetadata/client/app/polls/polls.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CspMetadata/client/app/polls/type/legal/legal.controller.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CspMetadata/client/app/polls/type/legal/legal.html" charset="UTF-8" />

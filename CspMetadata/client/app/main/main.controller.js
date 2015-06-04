@@ -15,6 +15,9 @@ angular.module('cspMetadataApp')
 
   }, errorHandler)
   $scope.cloudSortOrder = "- createdOn"
+
+  $scope.isLoggedIn = Auth.isLoggedIn;
+  $scope.user = Auth.getCurrentUser();
     }])
 
   .directive('providerInfo', function () {
