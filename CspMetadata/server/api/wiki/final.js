@@ -131,9 +131,9 @@ processResultJson =  function(response){
     var companyURI = companyRow.company.value;
     var qry = queryDetail.replace("COMAPNYQRYTAG", companyURI);
     executeQuery(qry,companyRow);
-    console.log("getting details for" +companyURI);
+    console.log("getting details for " +companyURI);
     var sleep = require('sleep');
-    sleep.sleep(1)//sleep for 1 seconds
+    sleep.sleep(2)//sleep for 1 seconds
   })
 
 }
@@ -264,7 +264,7 @@ function synchronizedInsertIntoGroup(group,row){
       if(row.locationLabel !==undefined){
         newRow.locations.push(row.locationLabel.value);
       }
-      if(row.productLabel!==undefined) {
+      if(row.productLabel!==undefined && row.productLabel!== group && row.productLabel!== "Amazon") {
         /*escaping list of in some products*/
         if (row.productLabel.value.indexOf("List of") < 0) {
           newRow.services.push(row.productLabel.value);
@@ -302,7 +302,7 @@ function synchronizedInsertIntoGroup(group,row){
         if(!checkInArray(provider.locations,row.locationLabel.value))
           provider.locations.push(row.locationLabel.value);
       }
-      if(row.productLabel!==undefined){
+      if(row.productLabel!==undefined && row.productLabel!== group && row.productLabel!== "Amazon"){
         if(!checkInArray(provider.services,row.productLabel.value)){
           /*escaping list of in some products*/
           if(row.productLabel.value.indexOf("List of")<0){
