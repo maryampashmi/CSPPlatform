@@ -118,11 +118,12 @@ exports.destroy = function(req, res) {
         if (err) {
           return handleError(res, err);
         }
-
         // Remove the post ID from provider.posts
         provider.replies = _.filter(provider.replies, function (x) {
           return x != req.params.id
         });
+
+        provider.posts.splice(provider.posts.indexOf(req.params.id),1);
 
         provider.save(function (err, saved) {
           if (err) return handleError(res, err);

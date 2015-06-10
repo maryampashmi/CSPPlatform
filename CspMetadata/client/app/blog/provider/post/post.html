@@ -3,7 +3,8 @@
   <div class="row">
     <div class="col-sm-12">
 <div class="page-header">
-  <h1 ng-click="incrementUpvotes(provider)" class="glyphicon glyphicon-thumbs-up">{{provider.upvotes}}&nbsp;{{provider.name}}</h1>
+  <h1 ng-click="incrementUpvotes(provider)" class="glyphicon glyphicon-thumbs-up"  ng-show="isLoggedIn()">{{provider.upvotes}}&nbsp;{{provider.name}}</h1>
+  <h1  class="glyphicon glyphicon-thumbs-up"  ng-hide="isLoggedIn()">{{provider.upvotes}}&nbsp;{{provider.name}}</h1>
   <button class="btn btn-xs btn-info" ng-show="isLoggedIn() && (user.name === 'Admin' || user.name === 'Editor' || user.name === 'Manager')" ng-click="modalUpdateProvider('lg',provider)">Edit</button>
 </div>
 <strong>Url: &nbsp;</strong>{{provider.url}} <br>

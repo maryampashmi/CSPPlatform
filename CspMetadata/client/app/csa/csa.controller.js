@@ -144,7 +144,7 @@ angular.module('cspMetadataApp')
           name : "CO-IntellectualProperty",
           children : [{
             id : "CO-06.1",
-            name : "CO-IntellectualProperty1",
+            name : "CO-IntellectualProperty.1",
             children : [{
               id : "Aryaka",
               name : "Aryaka"

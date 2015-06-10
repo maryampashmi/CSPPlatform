@@ -25,9 +25,9 @@ exports.show = function(req, res) {
 exports.create = function(req, res) {
  // console.log("req.user.name",req.user);
 
-  if(config.userRoles.indexOf(req.user.role) < config.userRoles.indexOf('admin')) {
+ /* if(config.userRoles.indexOf(req.user.role) < config.userRoles.indexOf('admin')) {
     return res.status(401).send('You need to be an admin to create posts');
-  }
+  }*/
 
   console.log("req",req.user);
   //req.body.author = req.user.name;
@@ -83,23 +83,36 @@ exports.upvote = function(req, res) {
 // Updates an existing provider in the DB.
 exports.update = function(req, res) {
   if(req.body._id) { delete req.body._id; }
+
   Provider.findById(req.params.id, function (err, provider) {
     if (err) { return handleError(res, err); }
     if(!provider) { return res.send(404); }
 
-    console.log('req.body from providers api',req.body);
+    //after merge we should get only the ids
+    //console.log('BEFORE MODIFICATION',req.body);
+    var posts = req.body.posts;
+    var postIds= new Array;
+    posts.forEach(function(post){
+      postIds.push(post._id);
+    });
+    req.body.posts = postIds;
     var updated = _.merge(provider, req.body);
-
-    /*delete req.body.posts;
-    var updated = _.merge(provider, req.body);
-// now updates.posts should only have 2 IDs mentioned above
-    updated.save(...
-*/
-    console.log('updatedDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD',updated)
-
+    //console.log('AFTER MODIFICATION',updated);
     updated.save(function (err) {
-      if (err) { return handleError(res, err); }
-      return res.json(200, provider);
+      //hack for updating arrays
+      Provider.findById(req.params.id, function (err, provider) {
+        provider.locations = req.body.locations;
+        provider.services = req.body.services;
+        console.log("@@@@@@@@@@@@",req.body);
+        //console.log(provider.services);
+        provider.save(function (err) {
+          if (err) {
+            return handleError(res, err);
+          }
+          return res.json(200, provider);
+        });
+      });
+
     });
   });
 };

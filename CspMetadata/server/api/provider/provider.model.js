@@ -15,8 +15,9 @@ var ProviderSchema = new Schema({
   upvotes: { type:Number, default:0 },
   upvoteUser:{type : Array, default:[]},
   createdOn: { type: Date, default: Date.now },
-  certificates:[{ type: mongoose.Schema.Types.ObjectId, ref: 'Certificates' }],
-  posts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Post' }]
+  //certificates:[{ type: mongoose.Schema.Types.ObjectId, ref: 'Certificates' }],
+  posts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Post' }],
+  CertSubControllers:[{ type: mongoose.Schema.Types.ObjectId, ref: 'CertSubController'}],
 });
 
 ProviderSchema.methods.findByName = function (cb) {

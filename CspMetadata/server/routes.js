@@ -9,6 +9,8 @@ var errors = require('./components/errors');
 module.exports = function(app) {
 
   // Insert routes below
+  app.use('/api/wikis', require('./api/wiki'));
+
   app.use('/api/providers/:providerId/certificates', require('./api/provider/certificates'));
   app.use('/api/providers/:providerId/certificates/:certificateId/certControllers', require('./api/provider/certificates/certClauses'));
   app.use('/api/providers/:providerId/certificates/:certificateId/certControllers/:certCtrId/certSubControllers', require('./api/provider/certificates/certClauses/certSubClauses'));

@@ -9,12 +9,16 @@ angular.module('cspMetadataApp')
         link: 'polls.legal'
       }, {
         title: 'Privacy',
-        icon: 'fa-user',
+        icon: 'fa-cogs',
         link: 'polls.privacy'
       }, {
         title: 'Security',
         icon: 'fa-photo',
         link: 'polls.security'
+      }, {
+        title: 'Customer Survey',
+        icon: 'fa-user',
+        link: 'polls.survey'
       }
     ];
 
