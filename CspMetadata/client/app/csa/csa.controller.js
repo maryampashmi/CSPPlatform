@@ -7,7 +7,7 @@ angular.module('cspMetadataApp')
       id: "cert-root",
       children : [{
         name : "ISO",
-        id : "cert-iso",
+        id : "mongo",
 
         children : [{
           id : "CO-01", //this is for all

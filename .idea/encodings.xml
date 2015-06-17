@@ -10,6 +10,7 @@
     <file url="file://$PROJECT_DIR$/CspMetadata/client/app/blog/provider/post/post.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CspMetadata/client/app/blog/update_provider_model.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CspMetadata/client/app/csa/csa.controller.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CspMetadata/client/app/csa/data.json.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CspMetadata/client/app/cspRegisterForm/cspRegisterForm.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CspMetadata/client/app/main/description/description.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CspMetadata/client/app/main/main.controller.js" charset="UTF-8" />
@@ -29,7 +30,12 @@
     <file url="file://$PROJECT_DIR$/CspMetadata/client/components/auth/auth.service.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CspMetadata/client/components/provider/providerFactory.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CspMetadata/example.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CspMetadata/list1.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CspMetadata/list2.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CspMetadata/out.json" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CspMetadata/output.json" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CspMetadata/server/api/dependencies/dependencies.controller.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CspMetadata/server/api/dependencies/index.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CspMetadata/server/api/provider/post/comment/comment.controller.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CspMetadata/server/api/provider/post/comment/reply/reply.controller.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CspMetadata/server/api/provider/post/index.js" charset="UTF-8" />

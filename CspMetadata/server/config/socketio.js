@@ -18,6 +18,8 @@ function onConnect(socket) {
   });
 
   // Insert sockets below
+  require('../api/dependencies/dependencies.socket').register(socket);
+  require('../api/certInfo/certInfo.socket').register(socket);
   require('./certClauses.socket').register(socket);
   require('./certSubClauses.socket').register(socket);
   require('./certificates.socket').register(socket);
