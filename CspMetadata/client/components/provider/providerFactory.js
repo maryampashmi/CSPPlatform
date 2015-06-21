@@ -87,6 +87,22 @@ angular.module('cspMetadataApp')
             });
     };
 
+    ob.createRating = function(provider,rating) {
+      console.log('in createPost inside FACTORY PROVIDER',provider);
+      console.log('in createPost inside FACTORY Rating',rating);
+      return $http.post('/api/providers/'+ provider._id + '/rating',rating, {
+        headers: {Authorization: 'Bearer '+Auth.getToken()}
+      }).success(function(data){
+        _.forEach(ob.providers,function(value,index){
+          if(value._id === provider._id){
+            ob.providers[index].ratings.push(data);
+          }
+        })
+        //console.log('ob.current in createRating inside providerFactory',ob.current.ratings);
+        ob.current.ratings.push(data)
+        // ob.provider1._id.posts.push(data);
+      });
+    };
 
     ob.createPost = function(provider,post) {
       console.log('in createPost inside FACTORY PROVIDER',provider);
@@ -99,11 +115,13 @@ angular.module('cspMetadataApp')
                         ob.providers[index].posts.push(data);
                     }
                 })
-               console.log('ob.current in createPost inside providerFactory',ob.current.posts);
-                ob.current.posts.push(data)
+              console.log('ob.current in createPost inside providerFactory',ob.current.posts);
+              ob.current.posts.push(data)
                // ob.provider1._id.posts.push(data);
             });
     };
+
+
 
     //create new comment for post
     ob.createComment = function(provider, post,comment) {

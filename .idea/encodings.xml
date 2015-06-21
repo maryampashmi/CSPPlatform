@@ -9,6 +9,8 @@
     <file url="file://$PROJECT_DIR$/CspMetadata/client/app/blog/provider/post/post.controller.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CspMetadata/client/app/blog/provider/post/post.css" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CspMetadata/client/app/blog/provider/post/post.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CspMetadata/client/app/blog/provider/post/post.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CspMetadata/client/app/blog/provider/rating/rating.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CspMetadata/client/app/blog/update_provider_model.html" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CspMetadata/client/app/csa/csa.controller.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CspMetadata/client/app/csa/data.json.js" charset="UTF-8" />
@@ -46,6 +48,7 @@
     <file url="file://$PROJECT_DIR$/CspMetadata/server/api/provider/rating/index.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CspMetadata/server/api/provider/rating/rating.controller.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CspMetadata/server/api/provider/rating/rating.model.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CspMetadata/server/api/provider/rating/rating.spec.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CspMetadata/server/api/wiki/final.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CspMetadata/server/config/seed.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/CspMetadata/server/routes.js" charset="UTF-8" />

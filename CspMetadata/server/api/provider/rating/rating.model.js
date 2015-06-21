@@ -7,8 +7,8 @@ var mongoose = require('mongoose'),
 var RatingSchema = new Schema({
   author: String,
   rating : { type: Number, min: 1, max: 5 },
-  parameter : String,
-  provider: { type: mongoose.Schema.Types.ObjectId, ref: 'Provider' },
+  parameter : {type: String, enum: ['OVERALL']},
+  provider: { type: mongoose.Schema.Types.ObjectId, ref: 'Provider' }
 });
 
 module.exports = mongoose.model('Rating', RatingSchema);

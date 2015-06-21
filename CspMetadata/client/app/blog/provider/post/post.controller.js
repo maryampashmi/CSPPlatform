@@ -2,7 +2,7 @@
 
 angular.module('cspMetadataApp')
   .controller('PostCtrl',  [
-      '$scope','providers','countries','$stateParams','$modal', '$log','Auth','Modal',
+      '$scope','providers' ,'countries','$stateParams','$modal', '$log','Auth','Modal',
       function($scope,providers,countries,$stateParams,$modal, $log,Auth,Modal){
         //$scope.providers = providers.providers;
         console.log('$stateParams from post ctrl', $stateParams);
@@ -179,9 +179,37 @@ angular.module('cspMetadataApp')
           }, function () {
             $log.info('Modal dismissed at: ' + new Date());
           });
+
         };
 
+        /**
+         * Function getting called on click of rate button
+         */
+        $scope.rate = function () {
+          $scope.isReadonly= false;
+        }
 
+        /**
+         * Function getting called on click of cancel rate button
+         * @param provider
+         */
+        $scope.cancelRate = function () {
+          $scope.isReadonly= true;
+        }
+
+        /**
+         * Function getting called on click of save rate button
+         * @param provider
+         */
+        $scope.saveRate = function (provider) {
+          $scope.isReadonly= true;
+          providers.createRating($scope.provider,{
+            author: $scope.user,
+            rating : $scope.rating1,
+            provider :$scope.provider,
+            parameter : 'OVERALL'
+          });
+        }
       }])
   .directive("starRating", function() {
     return {

@@ -12,7 +12,17 @@
   <button class="btn btn-xs btn-info" ng-show="isLoggedIn() && (user.name === 'Admin' || user.name === 'Editor' || user.name === 'Manager')"
           ng-click="modalUpdateProvider('lg',provider)">Edit
   </button>
-  <div star-rating class="col-md-2" ng-model="rating1" max="5" on-rating-selected="rateFunction(rating)"></div>
+
+  <div star-rating ng-model="rating1" max="5"  readonly="isReadonly" on-rating-selected="rateFunction(rating)"></div>
+  <button class="btn btn-xs btn-info" ng-show="isLoggedIn()  && isReadonly"
+          ng-click="rate()">Rate
+  </button>
+  <button class="btn btn-xs btn-info" ng-show="isLoggedIn() && !isReadonly"
+          ng-click="saveRate(provider)">Save
+  </button>
+  <button class="btn btn-xs btn-info" ng-show="isLoggedIn()  && !isReadonly"
+          ng-click="cancelRate()">Cancel
+  </button>
 </div>
 
 <strong>Url: &nbsp;</strong>{{provider.url}} <br>
@@ -24,10 +34,10 @@
   <div ng-repeat="post in provider.posts track by $index"  pagination-id="post">
     <!--{{post.upvotes}}-&nbsp;-->
     <!--<span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotesPost(post)" ng-show="isLoggedIn()">-->
-       <div  star-rating ng-model="rating1" max="5" on-rating-selected="rateFunction(rating)" ng-click="incrementUpvotesPost(post)" ng-show="isLoggedIn()"></div>
+    <!--   <div  star-rating ng-model="rating1" max="5" on-rating-selected="rateFunction(rating)" ng-click="incrementUpvotesPost(post)" ng-show="isLoggedIn()"></div> -->
     <!--</span>-->
     <!--<span class="glyphicon glyphicon-thumbs-up" ng-hide="isLoggedIn()">-->
-       <div star-rating ng-model="rating1" max="5" ng-hide="isLoggedIn()" on-rating-selected="rateFunction(rating)"></div>
+    <!--<div star-rating ng-model="rating1" max="5" ng-hide="isLoggedIn()" on-rating-selected="rateFunction(rating)"></div> -->
     <!--</span>-->
 
 
