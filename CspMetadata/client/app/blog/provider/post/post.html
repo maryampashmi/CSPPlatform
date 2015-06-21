@@ -1,29 +1,43 @@
+
 <div ng-include="'components/navbar/navbar.html'"></div>
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
 <div class="page-header">
-  <h1 ng-click="incrementUpvotes(provider)" class="glyphicon glyphicon-thumbs-up"  ng-show="isLoggedIn()">{{provider.upvotes}}&nbsp;{{provider.name}}</h1>
+  <h1 ng-click="incrementUpvotes(provider)" class="glyphicon glyphicon-thumbs-up"  ng-show="isLoggedIn()">
+    {{provider.upvotes}}&nbsp;{{provider.name}}
+  </h1>
+
   <h1  class="glyphicon glyphicon-thumbs-up"  ng-hide="isLoggedIn()">{{provider.upvotes}}&nbsp;{{provider.name}}</h1>
-  <button class="btn btn-xs btn-info" ng-show="isLoggedIn() && (user.name === 'Admin' || user.name === 'Editor' || user.name === 'Manager')" ng-click="modalUpdateProvider('lg',provider)">Edit</button>
+  <button class="btn btn-xs btn-info" ng-show="isLoggedIn() && (user.name === 'Admin' || user.name === 'Editor' || user.name === 'Manager')"
+          ng-click="modalUpdateProvider('lg',provider)">Edit
+  </button>
+  <div star-rating class="col-md-2" ng-model="rating1" max="5" on-rating-selected="rateFunction(rating)"></div>
 </div>
+
 <strong>Url: &nbsp;</strong>{{provider.url}} <br>
 <strong></strong> <span ng-text-truncate="provider.description"  ng-tt-chars-threshold="330"></span>
 <br>
 <strong>services: &nbsp;</strong>{{provider.services}} <br><br>
 <strong>posts: &nbsp;</strong><br>
 <ul>
-  <li ng-repeat="post in provider.posts track by $index"  pagination-id="post">
+  <div ng-repeat="post in provider.posts track by $index"  pagination-id="post">
+    <!--{{post.upvotes}}-&nbsp;-->
+    <!--<span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotesPost(post)" ng-show="isLoggedIn()">-->
+       <div  star-rating ng-model="rating1" max="5" on-rating-selected="rateFunction(rating)" ng-click="incrementUpvotesPost(post)" ng-show="isLoggedIn()"></div>
+    <!--</span>-->
+    <!--<span class="glyphicon glyphicon-thumbs-up" ng-hide="isLoggedIn()">-->
+       <div star-rating ng-model="rating1" max="5" ng-hide="isLoggedIn()" on-rating-selected="rateFunction(rating)"></div>
+    <!--</span>-->
 
-    <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotesPost(post)" ng-show="isLoggedIn()"></span>
-    <span class="glyphicon glyphicon-thumbs-up" ng-hide="isLoggedIn()"></span>
 
     <span style="font-size:18px; margin-left:10px;">
-         {{post.upvotes}}-&nbsp;  <strong>{{post.title}}</strong>| {{post.body | limitTo:20}}{{post.body > 20 ? '':'...'}} post by {{post.author}}
+         <strong>{{post.title}}</strong>| {{post.body | limitTo:20}}{{post.body > 20 ? '':'...'}} post by {{post.author}}
           <span ng-if="post.comments.length !== 0">
                 <a ui-sref="comment({providerId: provider._id, postId : post._id})">{{post.comments.length}} Comments</a>
               <button class="btn btn-xs btn-info pull-right" ng-show="isLoggedIn()  && user.name === post.author" ng-click="modalUpdatePost('lg',provider,post)">Edit</button>
           </span>
+
           <span ng-if="post.comments.length === 0">
             <a  ui-sref="comment({providerId: provider._id, postId : post._id})">No Comments</a>
                <button class="btn btn-xs btn-danger pull-right" ng-show="isLoggedIn() && user.name === post.author " ng-click="deletePost(post.title,provider._id,post._id)">Delete</button>
@@ -31,7 +45,7 @@
          </span>
     </span>
 
-  </li>
+  </div>
 </ul>
 
 

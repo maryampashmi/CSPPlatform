@@ -18,6 +18,7 @@ function onConnect(socket) {
   });
 
   // Insert sockets below
+  require('./rating.socket').register(socket);
   require('../api/dependencies/dependencies.socket').register(socket);
   require('../api/certInfo/certInfo.socket').register(socket);
   require('./certClauses.socket').register(socket);

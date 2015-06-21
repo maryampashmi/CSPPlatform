@@ -9,6 +9,7 @@ var errors = require('./components/errors');
 module.exports = function(app) {
 
   // Insert routes below
+  app.use('/api/providers/:providerId/rating', require('./api/provider/rating'));
   app.use('/api/certificate/dependencies', require('./api/dependencies'));
 
 

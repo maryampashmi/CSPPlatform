@@ -4,11 +4,14 @@
     <bookmark url="file://$PROJECT_DIR$/CspMetadata/client/app/polls/type/legal/legal.html" line="109" mnemonic="7" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8c79d8c-dc4d-4e08-99a1-f1c3060c1c95" name="Default" comment="compelete dependencies api">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CspMetadata/server/api/dependencies/dependencies.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CspMetadata/client/app/csa/csa.controller.js" afterPath="$PROJECT_DIR$/CspMetadata/client/app/csa/csa.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CspMetadata/client/app/csa/data.json.js" afterPath="$PROJECT_DIR$/CspMetadata/client/app/csa/data.json.js" />
+    <list default="true" id="a8c79d8c-dc4d-4e08-99a1-f1c3060c1c95" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CspMetadata/client/app/blog/provider/post/post.controller.js" afterPath="$PROJECT_DIR$/CspMetadata/client/app/blog/provider/post/post.controller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CspMetadata/client/app/blog/provider/post/post.css" afterPath="$PROJECT_DIR$/CspMetadata/client/app/blog/provider/post/post.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CspMetadata/client/app/blog/provider/post/post.html" afterPath="$PROJECT_DIR$/CspMetadata/client/app/blog/provider/post/post.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CspMetadata/server/api/provider/provider.model.js" afterPath="$PROJECT_DIR$/CspMetadata/server/api/provider/provider.model.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CspMetadata/client/app/main/providerInfo/providerInfo.html" afterPath="$PROJECT_DIR$/CspMetadata/client/app/main/providerInfo/providerInfo.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CspMetadata/server/routes.js" afterPath="$PROJECT_DIR$/CspMetadata/server/routes.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CspMetadata/server/config/socketio.js" afterPath="$PROJECT_DIR$/CspMetadata/server/config/socketio.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -31,31 +34,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="dependencies.controller.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dependencies.controller.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CspMetadata/server/api/dependencies/dependencies.controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.41447368">
-              <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dependencies.model.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CspMetadata/server/api/dependencies/dependencies.model.js">
-          <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CspMetadata/server/api/dependencies/index.js">
+        <entry file="file://$PROJECT_DIR$/CspMetadata/server/api/provider/rating/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+              <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CspMetadata/server/api/provider/post/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="16" column="24" selection-start-line="4" selection-start-column="0" selection-end-line="16" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -65,67 +68,67 @@
         <entry file="file://$PROJECT_DIR$/CspMetadata/server/routes.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
+              <caret line="11" column="71" selection-start-line="11" selection-start-column="71" selection-end-line="11" selection-end-column="77" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="final.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CspMetadata/server/api/wiki/final.js">
+      <file leaf-file-name="rating.controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CspMetadata/server/api/provider/rating/rating.controller.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="110" column="14" selection-start-line="110" selection-start-column="14" selection-end-line="110" selection-end-column="14" />
+              <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="wiki.controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CspMetadata/server/api/wiki/wiki.controller.js">
+      <file leaf-file-name="rating.model.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CspMetadata/server/api/provider/rating/rating.model.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
+              <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="csa.controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CspMetadata/client/app/csa/csa.controller.js">
+      <file leaf-file-name="post.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/CspMetadata/client/app/blog/provider/post/post.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.54706925">
+              <caret line="26" column="12" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rating.spec.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CspMetadata/server/api/provider/rating/rating.spec.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="13" selection-start-line="18" selection-start-column="11" selection-end-line="22" selection-end-column="13" />
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="example.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CspMetadata/example.js">
+      <file leaf-file-name="post.spec.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CspMetadata/server/api/provider/post/post.spec.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="26" column="45" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="output.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CspMetadata/output.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="911" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="list2.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CspMetadata/list2.js">
+      <file leaf-file-name="provider.model.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CspMetadata/server/api/provider/provider.model.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="134" column="0" selection-start-line="134" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
+              <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -139,11 +142,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/CspMetadata/client/app/polls/type/legal/legal.js" />
-        <option value="$PROJECT_DIR$/CspMetadata/client/app/polls/polls.js" />
-        <option value="$PROJECT_DIR$/CspMetadata/client/app/polls/type/legal/legalFactory.js" />
-        <option value="$PROJECT_DIR$/CspMetadata/bower.json" />
-        <option value="$PROJECT_DIR$/CspMetadata/client/index.html" />
         <option value="$PROJECT_DIR$/CspMetadata/server/api/provider/post/comment/comment.controller.js" />
         <option value="$PROJECT_DIR$/CspMetadata/server/api/provider/post/comment/reply/index.js" />
         <option value="$PROJECT_DIR$/CspMetadata/server/api/provider/post/comment/index.js" />
@@ -161,7 +159,6 @@
         <option value="$PROJECT_DIR$/CspMetadata/client/app/main/main.controller.js" />
         <option value="$PROJECT_DIR$/CspMetadata/client/app/main/main.html" />
         <option value="$PROJECT_DIR$/CspMetadata/server/config/seed.js" />
-        <option value="$PROJECT_DIR$/CspMetadata/client/app/blog/provider/post/post.controller.js" />
         <option value="$PROJECT_DIR$/CspMetadata/client/components/auth/auth.service.js" />
         <option value="$PROJECT_DIR$/CspMetadata/client/app/polls/type/legal/legal.html" />
         <option value="$PROJECT_DIR$/CspMetadata/client/app/polls/type/security/security.html" />
@@ -169,18 +166,14 @@
         <option value="$PROJECT_DIR$/CspMetadata/client/app/polls/type/security/security.controller.js" />
         <option value="$PROJECT_DIR$/CspMetadata/client/app/polls/type/privacy/privacy.controller.js" />
         <option value="$PROJECT_DIR$/CspMetadata/client/app/polls/type/legal/legal.controller.js" />
-        <option value="$PROJECT_DIR$/CspMetadata/client/app/main/providerInfo/providerInfo.html" />
         <option value="$PROJECT_DIR$/CspMetadata/client/app/main/description/description.html" />
-        <option value="$PROJECT_DIR$/CspMetadata/client/app/blog/provider/post/post.html" />
         <option value="$PROJECT_DIR$/CspMetadata/client/app/polls/type/survey/survey/survey.js" />
         <option value="$PROJECT_DIR$/CspMetadata/client/app/polls/polls.controller.js" />
         <option value="$PROJECT_DIR$/CspMetadata/client/app/polls/type/survey/survey/survey.html" />
         <option value="$PROJECT_DIR$/CspMetadata/server/api/provider/provider.controller.js" />
         <option value="$PROJECT_DIR$/CspMetadata/server/api/wiki/final.js" />
         <option value="$PROJECT_DIR$/CspMetadata/server/api/provider/post/post.controller.js" />
-        <option value="$PROJECT_DIR$/CspMetadata/server/api/provider/provider.model.js" />
         <option value="$PROJECT_DIR$/CspMetadata/client/app/csa/data.json.js" />
-        <option value="$PROJECT_DIR$/CspMetadata/server/routes.js" />
         <option value="$PROJECT_DIR$/CspMetadata/server/api/dependencies/index.js" />
         <option value="$PROJECT_DIR$/CspMetadata/out.json" />
         <option value="$PROJECT_DIR$/CspMetadata/client/app/csa/csa.controller.js" />
@@ -190,6 +183,16 @@
         <option value="$PROJECT_DIR$/CspMetadata/output.json" />
         <option value="$PROJECT_DIR$/CspMetadata/server/api/provider/post/comment/reply/reply.controller.js" />
         <option value="$PROJECT_DIR$/CspMetadata/server/api/dependencies/dependencies.controller.js" />
+        <option value="$PROJECT_DIR$/CspMetadata/client/app/main/providerInfo/providerInfo.html" />
+        <option value="$PROJECT_DIR$/CspMetadata/client/app/blog/provider/post/post.css" />
+        <option value="$PROJECT_DIR$/CspMetadata/client/app/blog/provider/post/post.html" />
+        <option value="$PROJECT_DIR$/CspMetadata/client/app/blog/provider/post/post.controller.js" />
+        <option value="$PROJECT_DIR$/CspMetadata/server/api/rating/rating.controller.js" />
+        <option value="$PROJECT_DIR$/CspMetadata/server/api/rating/rating.model.js" />
+        <option value="$PROJECT_DIR$/CspMetadata/server/api/provider/provider.model.js" />
+        <option value="$PROJECT_DIR$/CspMetadata/server/routes.js" />
+        <option value="$PROJECT_DIR$/CspMetadata/server/api/provider/rating/index.js" />
+        <option value="$PROJECT_DIR$/CspMetadata/server/api/provider/rating/rating.model.js" />
       </list>
     </option>
   </component>
@@ -229,8 +232,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -277,7 +278,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
+              <option name="myItemId" value="client" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -295,11 +296,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
+              <option name="myItemId" value="client" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -317,20 +318,56 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
+              <option name="myItemId" value="client" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dependencies" />
+              <option name="myItemId" value="blog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="05052015" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="04062015" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CspMetadata" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="blog" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="provider" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="post" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -355,11 +392,11 @@
       <recent name="E:\backup app\26052015\CspMetadata\client\app\polls" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\backup app\04062015\CspMetadata\server\api\provider" />
       <recent name="E:\backup app\04062015\CspMetadata" />
       <recent name="E:\backup app\30052015\CspMetadata\client\app\blog" />
       <recent name="E:\backup app\30052015\CspMetadata\client\app\blog\provider\post" />
       <recent name="E:\backup app\21052015\CspMetadata\server" />
-      <recent name="E:\backup app\21052015\CspMetadata\client" />
     </key>
   </component>
   <component name="RestClientSettings">
@@ -1081,7 +1118,13 @@
       <option name="project" value="LOCAL" />
       <updated>1434523476287</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="compelete dependencies api">
+      <created>1434523652995</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1434523652995</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1097,25 +1140,25 @@
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16622691" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16833773" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32914287" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32914287" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.49371427" sideWeight="0.5060686" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26171428" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.57257146" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.424" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19472295" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.44114286" sideWeight="0.4939314" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28342858" sideWeight="0.4939314" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.45942858" sideWeight="0.49791667" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32849163" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32914287" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38628572" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20685714" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -1173,73 +1216,10 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/CspMetadata/client/app/polls/type/security/security.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CspMetadata/client/app/polls/type/privacy/privacy.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="265" column="21" selection-start-line="265" selection-start-column="21" selection-end-line="265" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CspMetadata/client/app/polls/type/legal/legal.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="275" column="24" selection-start-line="275" selection-start-column="24" selection-end-line="275" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CspMetadata/server/api/wiki/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CspMetadata/dist/server/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="2" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CspMetadata/client/app/main/main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="23" selection-start-line="32" selection-start-column="23" selection-end-line="32" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CspMetadata/client/app/main/providerInfo/providerInfo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CspMetadata/client/app/main/description/description.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.2580647">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CspMetadata/dist/server/config/seed.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.82994455">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CspMetadata/client/app/blog/provider/post/post.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -1313,13 +1293,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CspMetadata/client/app/blog/provider/post/post.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="54" column="35" selection-start-line="54" selection-start-column="35" selection-end-line="54" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CspMetadata/client/app/csa/csa.controller.spec.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1356,20 +1329,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CspMetadata/server/api/provider/post/post.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="140" column="24" selection-start-line="140" selection-start-column="24" selection-end-line="140" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CspMetadata/server/api/provider/post/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CspMetadata/out.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
@@ -1388,13 +1347,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="24" column="37" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CspMetadata/server/api/provider/provider.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -1440,7 +1392,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="50" column="31" selection-start-line="50" selection-start-column="31" selection-end-line="50" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1448,7 +1399,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="39" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1503,15 +1453,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33268103">
           <caret line="176" column="7" selection-start-line="176" selection-start-column="7" selection-end-line="176" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CspMetadata/server/api/dependencies/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1531,18 +1472,130 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CspMetadata/server/routes.js">
+    <entry file="file://$PROJECT_DIR$/CspMetadata/client/app/main/providerInfo/providerInfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35353535">
+          <caret line="18" column="48" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CspMetadata/server/api/dependencies/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33460075">
+          <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CspMetadata/client/app/blog/provider/post/post.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
+          <caret line="19" column="15" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CspMetadata/client/app/blog/provider/post/post.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40866873">
+          <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CspMetadata/server/api/provider/post/post.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="22" selection-start-line="0" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CspMetadata/server/api/provider/post/post.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CspMetadata/server/api/provider/provider.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CspMetadata/server/api/dependencies/dependencies.controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41447368">
-          <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CspMetadata/server/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="71" selection-start-line="11" selection-start-column="71" selection-end-line="11" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CspMetadata/server/api/provider/post/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="24" selection-start-line="4" selection-start-column="0" selection-end-line="16" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CspMetadata/server/api/provider/rating/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CspMetadata/server/api/provider/rating/rating.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CspMetadata/server/api/provider/rating/rating.spec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CspMetadata/server/api/provider/post/post.spec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CspMetadata/server/api/provider/rating/rating.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CspMetadata/client/app/blog/provider/post/post.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.54706925">
+          <caret line="26" column="12" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
           <folding />
         </state>
       </provider>

@@ -17,6 +17,7 @@ var ProviderSchema = new Schema({
   createdOn: { type: Date, default: Date.now },
   //certificates:[{ type: mongoose.Schema.Types.ObjectId, ref: 'Certificates' }],
   posts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Post' }],
+  ratings:[{ type: mongoose.Schema.Types.ObjectId, ref: 'Rating' }],
   CertSubControllers:[{ type: mongoose.Schema.Types.ObjectId, ref: 'CertSubController'}],
 });
 
