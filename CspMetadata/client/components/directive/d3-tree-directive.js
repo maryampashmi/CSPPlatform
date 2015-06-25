@@ -122,7 +122,7 @@ function AngularD3multiParentDirective() {
           return d.name;
         });
       }
-      setTimeout(update, 2000);
+      setTimeout(update, 4000);
     }
 
     return {
