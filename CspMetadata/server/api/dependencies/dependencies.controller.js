@@ -35,27 +35,31 @@ function processJSON(certificates,res) {
     var cert = {};
     cert.name = certificate.name;
     cert.id = certificate["_id"];
-    cert.certControllers = new Array;
+    cert.children = new Array;
     certificates[indx].certControllers.forEach(function (certController, index) {
       var ctrlr = {};
       ctrlr.name = certController.name;
       ctrlr.id = certController["_id"];
       ctrlr.description = certController.description;
      // ctrlr.certSubControllers = certController.certSubControllers;
-      ctrlr.certSubControllers = []
+      ctrlr.children = []
       certController.certSubControllers.forEach(function(certSubCtrl){
 
         var certSubCtrlTmp = JSON.parse(JSON.stringify(certSubCtrl))
 
         //var certSubCtrlTmp = certSubCtrl
        var x = populateProvider(certSubCtrlTmp,providers)
-        ctrlr.certSubControllers.push(x)
+        ctrlr.children.push(x)
       })
-      cert.certControllers.push(ctrlr);
+      cert.children.push(ctrlr);
     })
     output.push(cert);
   })
-    res.json(output)
+
+    res.json({name: "certificates",
+      id: "cert-root",
+      children:output
+    })
    // return output;
 })
 
@@ -75,7 +79,7 @@ function populateProvider(certSubCtrl,providers){
       }
     })
   })
-  certSubCtrl.providers = providersTmp
+  certSubCtrl.children = providersTmp
 
   return certSubCtrl
 }

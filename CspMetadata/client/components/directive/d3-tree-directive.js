@@ -11,103 +11,127 @@
 
 function AngularD3multiParentDirective() {
 
-  function link(scope, element, attr) {
+    function link(scope, element, attr) {
 
-    // specify graph defaults with fallbacks
-    var graph = {
-      width: attr.width || 1000,
-      height: attr.height || 900
-    };
+      var update = function () {
 
-    // extend d3 with moveToFront function
-    // this function redraws the elements in order to put them always in the front
-    d3.selection.prototype.moveToFront = function () {
-      return this.each(function () {
-        this.parentNode.appendChild(this);
-      });
-    };
 
-    // draw the svg container for the full graph
-    var svg = d3.select(element[0]).append("svg:svg").attr("width", graph.width).attr("height", graph.height).append("svg:g").attr("transform", "translate(-" + graph.width * 0.2 + ", 0)");
+        // specify graph defaults with fallbacks
+        var graph = {
+          width: attr.width || 1000,
+          height: attr.height || 900
+        };
 
-    // specify the diagonal path link draw function
-    var diagonal = d3.svg.diagonal().projection(function (d) {
-      return [d.y, d.x];
-    });
+        // colouring function
+        var colors = d3.scale.category20();
 
-    // define the tree and leave some space for the text
-    var tree = d3.layout.tree().size([graph.height, graph.width / 2]);
+        // extend d3 with moveToFront function
+        // this function redraws the elements in order to put them always in the front
+        d3.selection.prototype.moveToFront = function () {
+          return this.each(function () {
+            this.parentNode.appendChild(this);
+          });
+        };
 
-    //tooltip
-    var tooltip = d3.select("body").append("div").attr("class", "tooltip").style("opacity", 0);
+        // draw the svg container for the full graph
+        var svg = d3.select(element[0]).append("svg:svg").attr("width", graph.width).attr("height", graph.height).append("svg:g").attr("transform", "translate(20, 0)");
 
-    // calculate nodes
-    var nodes = tree.nodes(scope.data);
+        // specify the diagonal path link draw function
+        var diagonal = d3.svg.diagonal().projection(function (d) {
+          return [d.y, d.x];
+        });
 
-    //make nodes unique by id
-    nodes = _.uniq(nodes, "id");
+        // define the tree and leave some space for the text
+        var tree = d3.layout.tree().size([graph.height, graph.width / 2]);
 
-    // recalculate the x poition of each of then node after the removal
-    _.each(nodes, function (o, i) {
-      var itemsOfTheSameDepth = _.where(nodes, { depth: o.depth });
-      var indexOfTheCurrentItem = _.indexOf(itemsOfTheSameDepth, o);
-      var intervalPerDepth = graph.height / itemsOfTheSameDepth.length;
-      nodes[i].x = intervalPerDepth / 2 + intervalPerDepth * indexOfTheCurrentItem;
-    });
+        //tooltip
+        var tooltip = d3.select("body").append("div").attr("class", "tooltip").style("opacity", 0);
 
-    // calculate links
-    var links = tree.links(nodes);
+        // calculate nodes
+        console.log(scope.data);
+        var nodes = tree.nodes(scope.data);
 
-    // remap the links to the appropriate targets
-    _.each(links, function (o, i) {
-      links[i].target = _.find(nodes, { id: o.target.id });
-    });
+        //make nodes unique by id
+        nodes = _.uniq(nodes, "id");
 
-    // draw links
-    var link = svg.selectAll("path").data(links).enter().append("svg:path").attr("class", function (d) {
-      return !!d.source ? d.source.id : "root";
-    }).classed("link", true).attr("d", diagonal);
+        // recalculate the x poition of each of then node after the removal
+        _.each(nodes, function (o, i) {
+          var itemsOfTheSameDepth = _.where(nodes, {depth: o.depth});
+          var indexOfTheCurrentItem = _.indexOf(itemsOfTheSameDepth, o);
+          var intervalPerDepth = graph.height / itemsOfTheSameDepth.length;
+          nodes[i].x = intervalPerDepth / 2 + intervalPerDepth * indexOfTheCurrentItem;
+        });
 
-    // draw nodes
-    var node = svg.selectAll("g.node").data(nodes).enter().append("svg:g").attr("transform", function (d) {
-      return "translate(" + d.y + ", " + d.x + ")";
-    }).on("mouseup", function (d) {
-      // clean up hovers
-      d3.selectAll("path.link").classed("hover", false);
+        // calculate links
+        var links = tree.links(nodes);
 
-      // mark paths to hover
-      d3.selectAll("." + d.id).classed("hover", true).moveToFront();
-    }).on("mouseover", function (d) {
-      // if description exists ... match it to tooltip
-      if (!!d.description) {
-        tooltip.transition().duration(200).style("opacity", 0.9);
+        // remap the links to the appropriate targets
+        _.each(links, function (o, i) {
+          links[i].target = _.find(nodes, {id: o.target.id});
+        });
 
-        tooltip.html(d.description).style("left", d3.event.pageX - 8 + "px").style("top", d3.event.pageY + 8 + "px");
+        // draw links
+        var link = svg.selectAll("path").data(links).enter().append("svg:path").attr("class", function (d) {
+          return !!d.source ? d.source.id : "root";
+        }).classed("link", true).attr("d", diagonal);
+
+        // draw nodes
+        var node = svg.selectAll("g.node").data(nodes).enter().append("svg:g").attr("transform", function (d) {
+          return "translate(" + d.y + ", " + d.x + ")";
+        }).on("mouseup", function (d) {
+          // clean up hovers
+          d3.selectAll("path.link").classed("hover", false);
+
+          // mark paths to hover
+          d3.selectAll("." + d.name).classed("hover", true).moveToFront();
+
+          _.pluck(d.children, "name").forEach(function (id) {
+            d3.selectAll("." + id).classed("hover", true).moveToFront();
+          });
+
+          if (d.children) {
+            d._children = d.children;
+            d.children = null;
+          } else {
+            d.children = d._children;
+            d._children = null;
+          }
+        }).on("mouseover", function (d) {
+          // if description exists ... match it to tooltip
+          if (!!d.description) {
+            tooltip.transition().duration(200).style("opacity", 0.9);
+
+            tooltip.html(d.description).style("left", d3.event.pageX - 8 + "px").style("top", d3.event.pageY + 8 + "px");
+          }
+        }).on("mouseout", function (d) {
+          tooltip.transition().duration(500).style("opacity", 0);
+        });
+
+        // append some node visualization
+        node.append("svg:circle").attr("r", 4).attr("fill", function (d) {
+          return colors(d.name.split("-")[0]);
+        }).attr("stroke", "#333333").attr("stroke-width", "1.5px");
+
+        // add text to represent the meaning of the node
+        node.append("svg:text").attr("dx", function (d) {
+          return d.children ? -8 : 8;
+        }).attr("dy", 3).classed("text", true).attr("text-anchor", function (d) {
+          return d.children ? "end" : "start";
+        }).text(function (d) {
+          console.log(d.name);
+          return d.name;
+        });
       }
-    }).on("mouseout", function (d) {
-      tooltip.transition().duration(500).style("opacity", 0);
-    });
+      setTimeout(update, 2000);
+    }
 
-    // append some node visualization
-    node.append("svg:circle").attr("r", 3);
-
-    // add text to represent the meaning of the node
-    node.append("svg:text").attr("dx", function (d) {
-      return d.children ? -8 : 8;
-    }).attr("dy", 3).classed("text", true).attr("text-anchor", function (d) {
-      return d.children ? "end" : "start";
-    }).text(function (d) {
-      return d.name;
-    });
-  }
-
-  return {
-    restrict: "E",
-    scope: {
-      data: "="
-    },
-    link: link
-  };
+    return {
+        restrict: "E",
+        scope: {
+            data: "="
+        },
+        link: link
+    };
 }
 
 angular.module("d3-multi-parent", []).directive("treeMultiParent", AngularD3multiParentDirective);

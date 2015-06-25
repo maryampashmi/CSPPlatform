@@ -8,7 +8,6 @@ angular.module('cspMetadataApp', [
   'ui.router',
   'ui.bootstrap',
   'ngMaterial',
-  "ngTextTruncate",
   'd3-multi-parent',
   'formly',
   'formlyBootstrap'
