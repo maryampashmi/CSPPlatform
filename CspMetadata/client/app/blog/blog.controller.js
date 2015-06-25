@@ -10,7 +10,7 @@ angular.module('cspMetadataApp')
         .error(console.log)
         .success(function(results) {
           $scope.providers = results;
-          console.log(results);
+         // console.log(results);
 
           //for (var i = 1; i <= 4; i++) {
           //  var provider = providers[Math.floor(Math.random() * providers.length)];

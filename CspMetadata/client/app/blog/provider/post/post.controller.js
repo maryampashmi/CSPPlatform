@@ -211,7 +211,7 @@ angular.module('cspMetadataApp')
           });
         }
       }])
-  .directive("starRating", function() {
+ /* .directive("starRating", function() {
     return {
       restrict : "EA",
       template : "<ul class='rating' ng-class='{readonly: readonly}'>" +
@@ -249,3 +249,4 @@ angular.module('cspMetadataApp')
       }
     };
   });
+*/

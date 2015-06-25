@@ -7,8 +7,10 @@
 </div>
 <ul>
   <li ng-repeat="provider in providers track by $index" current-page="currentPage" pagination-id="provider"> <!-- | orderBy:'-upvotes'-->
-        <span class="glyphicon glyphicon-thumbs-up"
-              ng-click="incrementUpvotes(provider)"></span>
+
+       <a ui-sref="rating">---------------</a>
+        <!--<span class="glyphicon glyphicon-thumbs-up"
+              ng-click="incrementUpvotes(provider)"></span>-->
         <span style="font-size:18px; margin-left:10px;">
                 {{provider.upvotes}} - <strong>{{provider.name}}</strong>
           <span ng-if="provider.posts.length !== 0">
