@@ -48,7 +48,7 @@ function AngularD3multiParentDirective() {
         var tooltip = d3.select("body").append("div").attr("class", "tooltip").style("opacity", 0);
 
         // calculate nodes
-        console.log(scope.data);
+        //console.log(scope.data);
         var nodes = tree.nodes(scope.data);
 
         //make nodes unique by id
@@ -72,13 +72,15 @@ function AngularD3multiParentDirective() {
 
         // draw links
         var link = svg.selectAll("path").data(links).enter().append("svg:path").attr("class", function (d) {
-          return !!d.source ? d.source.id : "root";
+          return !!d.source ? d.source.name : "root";
         }).classed("link", true).attr("d", diagonal);
 
         // draw nodes
         var node = svg.selectAll("g.node").data(nodes).enter().append("svg:g").attr("transform", function (d) {
           return "translate(" + d.y + ", " + d.x + ")";
         }).on("mouseup", function (d) {
+
+        console.log(d);
           // clean up hovers
           d3.selectAll("path.link").classed("hover", false);
 
@@ -88,6 +90,8 @@ function AngularD3multiParentDirective() {
           _.pluck(d.children, "name").forEach(function (id) {
             d3.selectAll("." + id).classed("hover", true).moveToFront();
           });
+
+          //addText();
 
           if (d.children) {
             d._children = d.children;
@@ -113,14 +117,18 @@ function AngularD3multiParentDirective() {
         }).attr("stroke", "#333333").attr("stroke-width", "1.5px");
 
         // add text to represent the meaning of the node
-        node.append("svg:text").attr("dx", function (d) {
-          return d.children ? -8 : 8;
-        }).attr("dy", 3).classed("text", true).attr("text-anchor", function (d) {
-          return d.children ? "end" : "start";
-        }).text(function (d) {
-          console.log(d.name);
-          return d.name;
-        });
+        function addText() {
+          node.append("svg:text").attr("dx", function (d) {
+            return d.children ? -8 : 8;
+          }).attr("dy", 3).classed("text", true).attr("text-anchor", function (d) {
+            return d.children ? "end" : "start";
+          }).text(function (d) {
+            //console.log(d.name);
+            return d.name;
+          });
+        }
+
+        addText();
       }
       setTimeout(update, 4000);
     }
