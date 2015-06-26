@@ -20,6 +20,16 @@ exports.index = function(req, res) {
   });
 };
 
+/**
+ * Method called to get average rating for list of providers posted
+ * @param req
+ * @param res
+ */
+exports.getAverageRating = function(req, res) {
+console.log('req',req);
+}
+
+
 // Get a single rating
 exports.show = function(req, res) {
   Rating.findById(req.params.id, function (err, rating) {
