@@ -25,3 +25,10 @@ bower install
 Run the local server under the development environment
 
 grunt serve
+
+
+for data import
+mongorestore -d cspmetadata-dev cspmetadata-dev/
+
+for data export
+mongodump -d cspmetadata-dev -o cspmetadata-dev
