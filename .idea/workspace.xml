@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8c79d8c-dc4d-4e08-99a1-f1c3060c1c95" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CspMetadata/client/app/blog/blog.controller.js" afterPath="$PROJECT_DIR$/CspMetadata/client/app/blog/blog.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CspMetadata/client/app/blog/blog.html" afterPath="$PROJECT_DIR$/CspMetadata/client/app/blog/blog.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CspMetadata/client/app/blog/provider/post/post.controller.js" afterPath="$PROJECT_DIR$/CspMetadata/client/app/blog/provider/post/post.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CspMetadata/client/app/blog/provider/rating/rating.controller.js" afterPath="$PROJECT_DIR$/CspMetadata/client/app/blog/provider/rating/rating.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CspMetadata/client/app/blog/provider/rating/rating.css" afterPath="$PROJECT_DIR$/CspMetadata/client/app/blog/provider/rating/rating.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CspMetadata/client/app/blog/provider/rating/rating.html" afterPath="$PROJECT_DIR$/CspMetadata/client/app/blog/provider/rating/rating.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="05052015.iws" />
@@ -46,7 +40,7 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CspMetadata/client/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.7692308">
+            <state vertical-scroll-proportion="0.0">
               <caret line="120" column="32" selection-start-line="120" selection-start-column="32" selection-end-line="121" selection-end-column="68" />
               <folding />
             </state>
@@ -56,7 +50,7 @@
       <file leaf-file-name="rating.controller.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CspMetadata/client/app/blog/provider/rating/rating.controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5445545">
+            <state vertical-scroll-proportion="0.0">
               <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding>
                 <marker date="1435242621855" expanded="true" signature="2503:2541" placeholder="..." />
@@ -88,7 +82,7 @@
       <file leaf-file-name="rating.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CspMetadata/client/app/blog/provider/rating/rating.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.903226">
+            <state vertical-scroll-proportion="0.0">
               <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding />
             </state>
@@ -193,7 +187,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -477,6 +470,7 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1251,7 +1245,13 @@
       <option name="project" value="LOCAL" />
       <updated>1435236836520</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="finish csa visualisation">
+      <created>1435254848988</created>
+      <option name="number" value="00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1435254848988</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1265,7 +1265,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20263852" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32914287" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1273,7 +1273,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.57257146" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19472295" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2697143" sideWeight="0.4939314" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33714285" sideWeight="0.4939314" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32849163" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1603,7 +1603,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1618,7 +1617,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="5.154499">
           <caret line="39997" column="26" selection-start-line="39997" selection-start-column="26" selection-end-line="39997" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1633,7 +1631,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.5314091">
           <caret line="93" column="12" selection-start-line="93" selection-start-column="12" selection-end-line="93" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1655,7 +1652,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.89534885">
           <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1663,10 +1659,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7257732">
           <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#form#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1674,13 +1666,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.270627">
           <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CspMetadata/client/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.7692308">
+        <state vertical-scroll-proportion="0.0">
           <caret line="120" column="32" selection-start-line="120" selection-start-column="32" selection-end-line="121" selection-end-column="68" />
           <folding />
         </state>
@@ -1712,7 +1703,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CspMetadata/client/app/blog/provider/rating/rating.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.903226">
+        <state vertical-scroll-proportion="0.0">
           <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding />
         </state>
@@ -1720,7 +1711,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CspMetadata/client/app/blog/provider/rating/rating.controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5445545">
+        <state vertical-scroll-proportion="0.0">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
             <marker date="1435242621855" expanded="true" signature="2503:2541" placeholder="..." />
