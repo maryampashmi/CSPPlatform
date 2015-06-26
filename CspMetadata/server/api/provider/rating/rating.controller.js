@@ -6,25 +6,17 @@ var q = require('q');
 var Rating = require('./rating.model.js');
 var Provider = require('../provider.model.js');
 
-// Get list of ratings
+// Get average reating for the provider
 exports.index = function(req, res) {
-  Provider.findById(req.originalUrl.split('/')[3]).select('ratings').populate('ratings').exec( function(err, provider) {
+  Rating.find({provider:req.originalUrl.split('/')[3]}).exec( function(err, ratings) {
     if(err) { return handleError(res, err); }
-    if(!provider) { return res.status(404).send('Provider not found'); }
-
-    var promises = [];
-
-    _.forEach(provider.ratings, function(ratingId) {
-      promises.push(Rating.findById(ratingId).exec());
+    if(!ratings) { return res.status(404).send('Provider not found'); }
+    var total =0;
+    _.forEach(ratings, function(rating) {
+       total += rating.rating
     });
-
-    q.allSettled(promises)
-      .catch(_.partial(handleError, res))
-      .then(function(results) {
-        console.log(_.map(results, _.property('value')));
-        return res.status(200).json(_.map(results, _.property('value')));
-
-      })
+    var average= total/ratings.length;
+    return res.status(201).json({average:average});
   });
 };
 
@@ -46,10 +38,11 @@ exports.create = function(req, res) {
     if(req.user===undefined){//if user is not signed in  go to login page
       return res.status(401).end();
     }
+    var mongoose = require('mongoose');
 
     req.body.author = req.user.name;
-
-    console.log('req.body.role',req.body.role)
+    req.body.provider = mongoose.Types.ObjectId.fromString(provider._id);
+   // console.log('req.body.role',req.body.role)
 
 
     Rating.create(req.body, function(err, rating) {
