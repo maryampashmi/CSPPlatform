@@ -2,7 +2,7 @@
 
 var _ = require('lodash');
 var q = require('q');
-var CertSubController = require('./CertSubClauses.model.js');
+var CertSubController = require('./certSubClauses.model.js');
 var CertController= require('../certClauses.model.js');
 
 // Get list of CertSubController
