@@ -9,13 +9,16 @@ angular.module('cspMetadataApp')
       $http.get('/api/providers')
         .error(console.log)
         .success(function(results) {
-          $scope.providers = results;
-         // console.log(results);
+          $scope.providers = JSON.parse(JSON.stringify(results));
 
-          //for (var i = 1; i <= 4; i++) {
-          //  var provider = providers[Math.floor(Math.random() * providers.length)];
-          //  $scope.providers.push('provider ' + i + ': ' + provider);
-          //}
+          results.forEach(function(provider,index){
+            $http.get('api/providers/'+provider._id+'/rating')
+              .error(console.log)
+              .success(function(rating){
+                $scope.providers[index].averageRating = rating.average;
+              });
+          });
+
         });
 
       //console.log(providers);
