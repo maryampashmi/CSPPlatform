@@ -26,40 +26,69 @@ exports.index = function(req, res) {
  * @param res
  */
 exports.getAverageRating = function(req, res) {
-  var posts = JSON.parse(JSON.stringify(req.body));
+  var providers = JSON.parse(JSON.stringify(req.body));
   Rating.find({}, function(err, ratings){
     //return res.status(201).json(ratings);
-    req.body.forEach(function(post,index){
+    req.body.forEach(function(provider,index){
       var totalRating=0;
       var users = 0;
       ratings.forEach(function(rating){
-        if(new String(post._id).valueOf() === new String(rating.provider).valueOf()){
+        if(new String(provider._id).valueOf() === new String(rating.provider).valueOf()){
           users++;
-          totalRating = rating.rating;
+          totalRating = totalRating+ rating.rating;
         }
       })
       if(users==0){
         users =1;
       }
-      posts[index].averageRating = totalRating/users;
+      providers[index].averageRating = totalRating/users;
 
     })
-    return res.status(201).json(posts);
+    return res.status(201).json(providers);
   });
 
 }
 
 /**
- * Method used to get the rating details for a provider by id
+ * Method used to get the rating details for a posts by id
  * @param req
  * @param res
  */
 exports.getProviderRating = function(req, res) {
- /* Rating.find({criteria:req.originalUrl.split('/')[3]}).exec( function(err, ratings) {
-    if(err) { return handleError(res, err); }
-    if(!ratings) { return res.status(404).send('Provider not found'); }*/
+  var posts = new Array;
+  Rating.find({}, function(err, ratings){
 
-  console.log('provider*******');
+    var user = "";
+
+    if(typeof req.user !== "undefined" ){
+      user = req.user.name
+    }
+
+    req.body.forEach(function(post,index){
+      var userRating = 0;
+      posts.push({});
+      var totalRating=0;
+      var users = 0;
+
+      ratings.forEach(function(rating){
+        if(new String(post).valueOf() === new String(rating.criteria).valueOf()){
+          users++;
+          totalRating = totalRating+ rating.rating;
+          if(new String(rating.author).valueOf()===user){
+            userRating=rating.rating;
+          }
+        }
+
+      })
+      if(users===0){
+        users =1;
+      }
+      posts[index].post = post;
+      posts[index].averageRating = totalRating/users;
+      posts[index].userRating = userRating;
+    })
+    return res.status(201).json(posts);
+  });
 
 }
 

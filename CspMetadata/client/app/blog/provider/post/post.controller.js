@@ -29,6 +29,12 @@ angular.module('cspMetadataApp')
               .success(function(rating){
                 $scope.averageProviderRating = rating.average;
               });
+
+            $http.post('/api/providers/rating/getProviderRating', $scope.provider.posts)
+              .error(console.log)
+              .success(function(result) {
+                $scope.postRating = result;
+              });
           });
 
 

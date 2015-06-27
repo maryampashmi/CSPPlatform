@@ -10,7 +10,7 @@ router.get('/', controller.index);
 router.get('/:id', controller.show);
 router.post('/',auth.appendUser(), controller.create);
 router.post('/getAverageRating', controller.getAverageRating);
-router.post('/getProviderRating', controller.getProviderRating);
+router.post('/getProviderRating',auth.appendUser(), controller.getProviderRating);
 router.put('/:id',auth.appendUser(), controller.update);
 router.post('/:id',auth.appendUser(), controller.update);
 router.delete('/:id', auth.appendUser(), controller.destroy);

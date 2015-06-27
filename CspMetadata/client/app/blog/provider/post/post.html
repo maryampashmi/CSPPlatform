@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-sm-12">
 <div class="page-header">
-  Average provider Rating:{{averageProviderRating}}<br/>
+  <b>Average provider Rating:{{averageProviderRating}}</b><br/>
   <h1 ng-click="incrementUpvotes(provider)" class="glyphicon glyphicon-thumbs-up"  ng-show="isLoggedIn()">
     {{provider.upvotes}}&nbsp;{{provider.name}}
   </h1>
@@ -33,16 +33,9 @@
 <strong>posts: &nbsp;</strong><br>
 <ul>
   <div ng-repeat="post in provider.posts track by $index"  pagination-id="post">
-    <!--{{post.upvotes}}-&nbsp;-->
-    <!--<span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotesPost(post)" ng-show="isLoggedIn()">-->
-    <!--   <div  star-rating ng-model="rating1" max="5" on-rating-selected="rateFunction(rating)" ng-click="incrementUpvotesPost(post)" ng-show="isLoggedIn()"></div> -->
-    <!--</span>-->
-    <!--<span class="glyphicon glyphicon-thumbs-up" ng-hide="isLoggedIn()">-->
-    <!--<div star-rating ng-model="rating1" max="5" ng-hide="isLoggedIn()" on-rating-selected="rateFunction(rating)"></div> -->
-    <!--</span>-->
-
-
     <span style="font-size:18px; margin-left:10px;">
+         AVG {{postRating[$index].averageRating}}
+         userRating {{postRating[$index].userRating}}
          <strong>{{post.title}}</strong>| {{post.body | limitTo:20}}{{post.body > 20 ? '':'...'}} post by {{post.author}}
           <span ng-if="post.comments.length !== 0">
                 <a ui-sref="comment({providerId: provider._id, postId : post._id})">{{post.comments.length}} Comments</a>
