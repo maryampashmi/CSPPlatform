@@ -11,14 +11,11 @@ angular.module('cspMetadataApp')
         .success(function(results) {
           $scope.providers = JSON.parse(JSON.stringify(results));
 
-          results.forEach(function(provider,index){
-            $http.get('api/providers/'+provider._id+'/rating')
-              .error(console.log)
-              .success(function(rating){
-                $scope.providers[index].averageRating = rating.average;
-              });
-          });
-
+          $http.post('/api/providers/rating/getAverageRating',results)
+            .error(console.log)
+            .success(function(result) {
+              $scope.providers = result;
+            });
         });
 
       //console.log(providers);

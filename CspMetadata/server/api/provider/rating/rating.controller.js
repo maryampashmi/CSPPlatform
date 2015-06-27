@@ -26,7 +26,27 @@ exports.index = function(req, res) {
  * @param res
  */
 exports.getAverageRating = function(req, res) {
-console.log('req',req);
+  var posts = JSON.parse(JSON.stringify(req.body));
+  Rating.find({}, function(err, ratings){
+    //return res.status(201).json(ratings);
+    req.body.forEach(function(post,index){
+      var totalRating=0;
+      var users = 0;
+      ratings.forEach(function(rating){
+        if(new String(post._id).valueOf() === new String(rating.provider).valueOf()){
+          users++;
+          totalRating = rating.rating;
+        }
+      })
+      if(users==0){
+        users =1;
+      }
+      posts[index].averageRating = totalRating/users;
+
+    })
+    return res.status(201).json(posts);
+  });
+
 }
 
 
