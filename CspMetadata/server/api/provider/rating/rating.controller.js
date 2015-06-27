@@ -10,7 +10,7 @@ var Provider = require('../provider.model.js');
 exports.index = function(req, res) {
   Rating.find({provider:req.originalUrl.split('/')[3]}).exec( function(err, ratings) {
     if(err) { return handleError(res, err); }
-    if(!ratings) { return res.status(404).send('Provider not found'); }
+    if(!ratings) { return res.status(404).send('Rating not found'); }
     var total =0;
     _.forEach(ratings, function(rating) {
        total += rating.rating
@@ -46,6 +46,20 @@ exports.getAverageRating = function(req, res) {
     })
     return res.status(201).json(posts);
   });
+
+}
+
+/**
+ * Method used to get the rating details for a provider by id
+ * @param req
+ * @param res
+ */
+exports.getProviderRating = function(req, res) {
+ /* Rating.find({criteria:req.originalUrl.split('/')[3]}).exec( function(err, ratings) {
+    if(err) { return handleError(res, err); }
+    if(!ratings) { return res.status(404).send('Provider not found'); }*/
+
+  console.log('provider*******');
 
 }
 

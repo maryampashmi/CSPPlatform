@@ -2,14 +2,16 @@
 
 angular.module('cspMetadataApp')
   .controller('PostCtrl',  [
-      '$scope','providers' ,'countries','$stateParams','$modal', '$log','Auth','Modal',
-      function($scope,providers,countries,$stateParams,$modal, $log,Auth,Modal){
+      '$scope','providers' ,'countries','$stateParams','$modal', '$log','Auth','Modal','$http',
+      function($scope,providers,countries,$stateParams,$modal, $log,Auth,Modal,$http){
         //$scope.providers = providers.providers;
         console.log('$stateParams from post ctrl', $stateParams);
         // console.log($scope.post.provider);
         $scope.isLoggedIn = Auth.isLoggedIn;
         $scope.user = Auth.getCurrentUser();
 
+
+        $scope.averageProviderRating;
         $scope.rating1 = 1;
         //$scope.rating2 = 2;
         $scope.isReadonly = true;
@@ -21,8 +23,16 @@ angular.module('cspMetadataApp')
         providers.get($stateParams.providerId)
           .success(function() {
             $scope.provider = providers.current;
-            console.log('current',providers.current);
+
+            $http.get('api/providers/'+$scope.provider._id+'/rating')
+              .error(console.log)
+              .success(function(rating){
+                $scope.averageProviderRating = rating.average;
+              });
           });
+
+
+
 
         //console.log($scope.provider.current);
 
