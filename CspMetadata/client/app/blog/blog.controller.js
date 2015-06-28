@@ -130,6 +130,7 @@ angular.module('cspMetadataApp')
         ratingValue : "=ngModel",
         max : "=?", //optional: default is 5
         onRatingSelected : "&?",
+        key : "=ngClass",
         readonly: "=?"
       },
       link : function(scope, elem, attrs) {
@@ -138,22 +139,26 @@ angular.module('cspMetadataApp')
           scope.stars = [];
           for (var i = 0; i < scope.max; i++) {
             scope.stars.push({
-              filled : (i < scope.ratingValue.rating)
+              filled : (i < scope.ratingValue)
             });
           }
         };
         scope.toggle = function(index) {
           if (scope.readonly == undefined || scope.readonly == false){
-            scope.ratingValue.rating = index + 1;
+            scope.ratingValue = index + 1;
             scope.onRatingSelected({
               rating: index + 1
             });
           }
         };
-        scope.$watch("ratingValue.rating", function(oldVal, newVal) {
-          if (newVal || newVal>-1) {
+        scope.$watch("ratingValue", function(oldVal, newVal) {
+         // alert(newVal);
+         // if (newVal || newVal>-1) {
             updateStars();
-          }
+        //  }
+        });
+        scope.$watch("key", function(oldVal, newVal) {
+          updateStars();
         });
       }
     };

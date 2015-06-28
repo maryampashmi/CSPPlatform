@@ -10,14 +10,14 @@ angular.module('cspMetadataApp')
         $scope.isLoggedIn = Auth.isLoggedIn;
         $scope.user = Auth.getCurrentUser();
 
-
+        $scope.someKey = true;
         $scope.averageProviderRating;
-        $scope.rating1 = 1;
-        //$scope.rating2 = 2;
         $scope.isReadonly = true;
-        $scope.rateFunction = function(rating) {
-          console.log("Rating selected: " + rating);
-        };
+       /* $scope.rateFunction = function(rating) {
+          $scope.someKey = !$scope.someKey;
+          alert('clicked');
+          //console.log("Rating selected: " + rating);
+        };*/
 
 
         providers.get($stateParams.providerId)
@@ -86,6 +86,7 @@ angular.module('cspMetadataApp')
             .error(console.log)
             .success(function(rating){
               $scope.averageProviderRating = rating.average;
+              $scope.someKey = !$scope.someKey;
             });
 
           //create list of postids
@@ -102,6 +103,7 @@ angular.module('cspMetadataApp')
               .error(console.log)
               .success(function (result) {
                 $scope.postRating = result;
+                $scope.someKey = !$scope.someKey;
               });
           }
         }
@@ -226,7 +228,8 @@ angular.module('cspMetadataApp')
 
         }
       }])
- /* .directive("starRating", function() {
+/*
+  .directive("starRating", function() {
     return {
       restrict : "EA",
       template : "<ul class='rating' ng-class='{readonly: readonly}'>" +
@@ -246,22 +249,67 @@ angular.module('cspMetadataApp')
           scope.stars = [];
           for (var i = 0; i < scope.max; i++) {
             scope.stars.push({
-              filled : i < scope.ratingValue
+              filled : (i < scope.ratingValue.rating)
             });
           }
         };
         scope.toggle = function(index) {
           if (scope.readonly == undefined || scope.readonly == false){
-            scope.ratingValue = index + 1;
+            scope.ratingValue.rating = index + 1;
             scope.onRatingSelected({
               rating: index + 1
             });
           }
         };
-        scope.$watch("ratingValue", function(oldVal, newVal) {
-          if (newVal) { updateStars(); }
+        scope.$watch("ratingValue.rating", function(oldVal, newVal) {
+          if (newVal || newVal>-1) {
+            updateStars();
+          }
         });
       }
     };
-  });
-*/
+  })
+  .directive("averageStarRating", function() {
+    return {
+      restrict : "EA",
+      template : "<div class='average-rating-container'>" +
+      "  <ul class='rating background' class='readonly'>" +
+      "    <li ng-repeat='star in stars' class='star'>" +
+      "      <i class='fa fa-star'></i>" + //&#9733
+      "    </li>" +
+      "  </ul>" +
+      "  <ul class='rating foreground' class='readonly' style='width:{{filledInStarsContainerWidth}}%'>" +
+      "    <li ng-repeat='star in stars' class='star filled'>" +
+      "      <i class='fa fa-star'></i>" + //&#9733
+      "    </li>" +
+      "  </ul>" +
+      "</div>",
+      scope : {
+        averageRatingValue : "=ngModel",
+        key : "=ngClass",
+        max : "=?", //optional: default is 5
+      },
+      link : function(scope, elem, attrs) {
+        if (scope.max == undefined) { scope.max = 5; }
+        function updateStars() {
+          scope.stars = [];
+          for (var i = 0; i < scope.max; i++) {
+            scope.stars.push({});
+          }
+          var starContainerMaxWidth = 100; //%
+          scope.filledInStarsContainerWidth = scope.averageRatingValue / scope.max * starContainerMaxWidth;
+        };
+        /!*scope.$watch("averageRatingValue", function(oldVal, newVal) {
+         //alert('average modified');
+         //alert(JSON.stringify(newVal));
+         alert("h world");
+         if (newVal || newVal>-1) {
+         updateStars();
+         }
+         });*!/
+        scope.$watch("key", function(oldVal, newVal) {
+          updateStars();
+        });
+      }
+    };
+  });*/
