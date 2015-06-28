@@ -7,23 +7,21 @@
 </div>
 <ul>
   <li ng-repeat="provider in providers track by $index" current-page="currentPage" pagination-id="provider"> <!-- | orderBy:'-upvotes'-->
-
-       <a ui-sref="rating">---------------</a>
-        <!--<span class="glyphicon glyphicon-thumbs-up"
-              ng-click="incrementUpvotes(provider)"></span>-->
         <span style="font-size:18px; margin-left:10px;">
                 {{provider.upvotes}} - <strong>{{provider.name}}</strong>
           <span ng-if="provider.posts.length !== 0">
-                <a ui-sref="post({providerId : provider._id})">{{provider.posts.length}} Posts </a>
-              <button class="btn btn-xs btn-info pull-right"  ng-click="modalUpdateProvider('lg',provider)">Edit</button>
+            <a ui-sref="post({providerId : provider._id})">{{provider.posts.length}} Posts </a>
+            <button class="btn btn-xs btn-info pull-right"  ng-click="modalUpdateProvider('lg',provider)">Edit</button>
           </span>
           <span ng-if="provider.posts.length === 0">
             <a  ui-sref="post({providerId : provider._id})">No Posts</a>
-              <button class="btn btn-xs btn-danger pull-right" ng-click="deleteProvider(provider.name,provider._id)">Delete</button>
-              <button class="btn btn-xs btn-info pull-right"  ng-click="modalUpdateProvider('lg',provider)">Edit</button>
+            <button class="btn btn-xs btn-danger pull-right" ng-click="deleteProvider(provider.name,provider._id)">Delete</button>
+            <button class="btn btn-xs btn-info pull-right"  ng-click="modalUpdateProvider('lg',provider)">Edit</button>
          </span>
     </span>
     <span ng-show="provider.author"> posted by {{provider.author}} |  </span>
+    <br/>
+    <average-star-rating ng-model="provider.averageRating" max="5" ng-class="someKey"><average-star-rating>
   </li>
 </ul>
 

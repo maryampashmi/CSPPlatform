@@ -6,7 +6,7 @@ var Dependencies = require('./dependencies.model');
 var Provider = require('../provider/provider.model');
 var Certificate = require('../provider/certificates/certificates.model.js');
 var CertController= require('../provider/certificates/certClauses/certClauses.model.js');
-var CertSubController = require('../provider/certificates/certClauses/certSubClauses/CertSubClauses.model.js');
+var CertSubController = require('../provider/certificates/certClauses/certSubClauses/certSubClauses.model.js');
 
 // Get list of dependenciess
 /*exports.index = function(req, res) {

@@ -6,19 +6,18 @@ angular.module('cspMetadataApp')
     function($scope, $modal, $log,providers,Auth, $http, Modal){
       //$scope.providers = providers.providers;
       $scope.providers = [];
+      $scope.someKey = true;
       $http.get('/api/providers')
         .error(console.log)
         .success(function(results) {
           $scope.providers = JSON.parse(JSON.stringify(results));
 
-          results.forEach(function(provider,index){
-            $http.get('api/providers/'+provider._id+'/rating')
-              .error(console.log)
-              .success(function(rating){
-                $scope.providers[index].averageRating = rating.average;
-              });
-          });
-
+          $http.post('/api/providers/rating/getAverageRating',results)
+            .error(console.log)
+            .success(function(result) {
+              $scope.providers = JSON.parse(JSON.stringify(result));
+              $scope.someKey = ! $scope.someKey;
+            });
         });
 
       //console.log(providers);
@@ -117,13 +116,94 @@ angular.module('cspMetadataApp')
         });
       };
 
-      /*$scope.currentPage = 1;
-      $scope.pageSize = 4;
 
-      $scope.pageChangeHandler = function(num) {
-        console.log('providers page changed to ' + num);
-      };
-*/
-
-
-    }]);
+    }])
+  .directive("starRating", function() {
+    return {
+      restrict : "EA",
+      template : "<ul class='rating' ng-class='{readonly: readonly}'>" +
+      "  <li ng-repeat='star in stars' ng-class='star' ng-click='toggle($index)'>" +
+      "    <i class='fa fa-star'></i>" + //&#9733
+      "  </li>" +
+      "</ul>",
+      scope : {
+        ratingValue : "=ngModel",
+        max : "=?", //optional: default is 5
+        onRatingSelected : "&?",
+        key : "=ngClass",
+        readonly: "=?"
+      },
+      link : function(scope, elem, attrs) {
+        if (scope.max == undefined) { scope.max = 5; }
+        function updateStars() {
+          scope.stars = [];
+          for (var i = 0; i < scope.max; i++) {
+            scope.stars.push({
+              filled : (i < scope.ratingValue)
+            });
+          }
+        };
+        scope.toggle = function(index) {
+          if (scope.readonly == undefined || scope.readonly == false){
+            scope.ratingValue = index + 1;
+            scope.onRatingSelected({
+              rating: index + 1
+            });
+          }
+        };
+        scope.$watch("ratingValue", function(oldVal, newVal) {
+         // alert(newVal);
+         // if (newVal || newVal>-1) {
+            updateStars();
+        //  }
+        });
+        scope.$watch("key", function(oldVal, newVal) {
+          updateStars();
+        });
+      }
+    };
+  })
+  .directive("averageStarRating", function() {
+    return {
+      restrict : "EA",
+      template : "<div class='average-rating-container'>" +
+      "  <ul class='rating background' class='readonly'>" +
+      "    <li ng-repeat='star in stars' class='star'>" +
+      "      <i class='fa fa-star'></i>" + //&#9733
+      "    </li>" +
+      "  </ul>" +
+      "  <ul class='rating foreground' class='readonly' style='width:{{filledInStarsContainerWidth}}%'>" +
+      "    <li ng-repeat='star in stars' class='star filled'>" +
+      "      <i class='fa fa-star'></i>" + //&#9733
+      "    </li>" +
+      "  </ul>" +
+      "</div>",
+      scope : {
+        averageRatingValue : "=ngModel",
+        key : "=ngClass",
+        max : "=?", //optional: default is 5
+      },
+      link : function(scope, elem, attrs) {
+        if (scope.max == undefined) { scope.max = 5; }
+        function updateStars() {
+          scope.stars = [];
+          for (var i = 0; i < scope.max; i++) {
+            scope.stars.push({});
+          }
+          var starContainerMaxWidth = 100; //%
+          scope.filledInStarsContainerWidth = scope.averageRatingValue / scope.max * starContainerMaxWidth;
+        };
+        /*scope.$watch("averageRatingValue", function(oldVal, newVal) {
+          //alert('average modified');
+          //alert(JSON.stringify(newVal));
+          alert("h world");
+          if (newVal || newVal>-1) {
+            updateStars();
+          }
+        });*/
+        scope.$watch("key", function(oldVal, newVal) {
+          updateStars();
+        });
+      }
+    };
+  });

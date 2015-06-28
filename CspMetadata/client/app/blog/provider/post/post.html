@@ -4,6 +4,7 @@
   <div class="row">
     <div class="col-sm-12">
 <div class="page-header">
+  <!--<b>Average provider Rating:{{averageProviderRating}}</b><br/>-->
   <h1 ng-click="incrementUpvotes(provider)" class="glyphicon glyphicon-thumbs-up"  ng-show="isLoggedIn()">
     {{provider.upvotes}}&nbsp;{{provider.name}}
   </h1>
@@ -12,17 +13,16 @@
   <button class="btn btn-xs btn-info" ng-show="isLoggedIn() && (user.name === 'Admin' || user.name === 'Editor' || user.name === 'Manager')"
           ng-click="modalUpdateProvider('lg',provider)">Edit
   </button>
-
-  <div star-rating ng-model="rating1" max="5"  readonly="isReadonly" on-rating-selected="rateFunction(rating)"></div>
   <button class="btn btn-xs btn-info" ng-show="isLoggedIn()  && isReadonly"
           ng-click="rate()">Rate
   </button>
   <button class="btn btn-xs btn-info" ng-show="isLoggedIn() && !isReadonly"
-          ng-click="saveRate(provider)">Save
+          ng-click="saveRate(postRating)">Save
   </button>
   <button class="btn btn-xs btn-info" ng-show="isLoggedIn()  && !isReadonly"
           ng-click="cancelRate()">Cancel
   </button>
+  <average-star-rating ng-model="averageProviderRating" max="5" ng-class="someKey"><average-star-rating>
 </div>
 
 <strong>Url: &nbsp;</strong>{{provider.url}} <br>
@@ -32,16 +32,9 @@
 <strong>posts: &nbsp;</strong><br>
 <ul>
   <div ng-repeat="post in provider.posts track by $index"  pagination-id="post">
-    <!--{{post.upvotes}}-&nbsp;-->
-    <!--<span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotesPost(post)" ng-show="isLoggedIn()">-->
-    <!--   <div  star-rating ng-model="rating1" max="5" on-rating-selected="rateFunction(rating)" ng-click="incrementUpvotesPost(post)" ng-show="isLoggedIn()"></div> -->
-    <!--</span>-->
-    <!--<span class="glyphicon glyphicon-thumbs-up" ng-hide="isLoggedIn()">-->
-    <!--<div star-rating ng-model="rating1" max="5" ng-hide="isLoggedIn()" on-rating-selected="rateFunction(rating)"></div> -->
-    <!--</span>-->
-
-
     <span style="font-size:18px; margin-left:10px;">
+         <!--AVG {{postRating[$index].averageRating}}-->
+         <!--<input ng-model="postRating[$index].userRating" style="width: 2em"  ng-show="!isReadonly"/>-->
          <strong>{{post.title}}</strong>| {{post.body | limitTo:20}}{{post.body > 20 ? '':'...'}} post by {{post.author}}
           <span ng-if="post.comments.length !== 0">
                 <a ui-sref="comment({providerId: provider._id, postId : post._id})">{{post.comments.length}} Comments</a>
@@ -50,9 +43,11 @@
 
           <span ng-if="post.comments.length === 0">
             <a  ui-sref="comment({providerId: provider._id, postId : post._id})">No Comments</a>
-               <button class="btn btn-xs btn-danger pull-right" ng-show="isLoggedIn() && user.name === post.author " ng-click="deletePost(post.title,provider._id,post._id)">Delete</button>
-              <button class="btn btn-xs btn-info pull-right" ng-show="isLoggedIn() && user.name === post.author" ng-click="modalUpdatePost('lg',provider,post)">Edit</button>
+            <button class="btn btn-xs btn-danger pull-right" ng-show="isLoggedIn() && user.name === post.author " ng-click="deletePost(post.title,provider._id,post._id)">Delete</button>
+            <button class="btn btn-xs btn-info pull-right" ng-show="isLoggedIn() && user.name === post.author" ng-click="modalUpdatePost('lg',provider,post)">Edit</button>
          </span>
+         <star-rating ng-model="postRating[$index].userRating"  ng-class="someKey"  ng-show="!isReadonly"></star-rating>
+         <average-star-rating ng-model="postRating[$index].averageRating" max="5" ng-class="someKey"  ng-show="isReadonly"><average-star-rating>
     </span>
 
   </div>
