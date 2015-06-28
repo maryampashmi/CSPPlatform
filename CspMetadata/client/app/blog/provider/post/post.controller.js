@@ -23,37 +23,10 @@ angular.module('cspMetadataApp')
         providers.get($stateParams.providerId)
           .success(function() {
             $scope.provider = providers.current;
-
-            $http.get('api/providers/'+$scope.provider._id+'/rating')
-              .error(console.log)
-              .success(function(rating){
-                $scope.averageProviderRating = rating.average;
-              });
-
-            $http.post('/api/providers/rating/getProviderRating', $scope.provider.posts)
-              .error(console.log)
-              .success(function(result) {
-                $scope.postRating = result;
-              });
+            updateRatings();
           });
 
-
-
-
-        //console.log($scope.provider.current);
-
         providers.getAllPosts($stateParams.providerId);
-
-        // providers.getPost($scope.provider,$stateParams.post_id);
-        console.log('$scope.provider',$scope.provider);
-
-
-
-        console.log('BBEFORE PAGINATION',$scope.provider);
-
-
-        //console.log('INSIDE ADD POST AND PROVIDER IS',$scope.provider);
-
 
         $scope.deletePost= Modal.confirm.delete(function (provider_id,post_id) {
           //console.log('PROVIDER',provider_id);
@@ -107,6 +80,31 @@ angular.module('cspMetadataApp')
         $scope.incrementUpvotes = function(provider) {
           providers.upvote(provider);
         };
+
+        function updateRatings(){
+          $http.get('api/providers/'+$scope.provider._id+'/rating')
+            .error(console.log)
+            .success(function(rating){
+              $scope.averageProviderRating = rating.average;
+            });
+
+          //create list of postids
+          if($scope.provider.posts.length>0) {
+            var posts=[];
+            if(typeof $scope.provider.posts[0]._id !=="undefined"){
+              $scope.provider.posts.forEach(function(post){
+                posts.push(post._id);
+              });
+            }else{
+              posts = $scope.provider.posts;
+            }
+            $http.post('/api/providers/rating/getProviderRating', posts)
+              .error(console.log)
+              .success(function (result) {
+                $scope.postRating = result;
+              });
+          }
+        }
 
         ///////////////////////*Using Modal Update from UI-bootstrapt*//////////////////////////////////////////
 
@@ -217,14 +215,15 @@ angular.module('cspMetadataApp')
          * Function getting called on click of save rate button
          * @param provider
          */
-        $scope.saveRate = function (provider) {
+        $scope.saveRate = function (postRatings) {
           $scope.isReadonly= true;
-          providers.createRating($scope.provider,{
-            author: $scope.user,
-            rating : $scope.rating1,
-            provider :$scope.provider,
-            parameter : 'OVERALL'
-          });
+
+          $http.post('/api/providers/rating/insertupdate', {"post":postRatings ,"provider":$scope.provider})
+            .error(console.log)
+            .success(function(result) {
+              updateRatings();
+            });
+
         }
       }])
  /* .directive("starRating", function() {

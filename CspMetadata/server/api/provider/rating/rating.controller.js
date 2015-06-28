@@ -75,7 +75,7 @@ exports.getProviderRating = function(req, res) {
           users++;
           totalRating = totalRating+ rating.rating;
           if(new String(rating.author).valueOf()===user){
-            userRating=rating.rating;
+            posts[index].userRating = rating.rating;
           }
         }
 
@@ -85,13 +85,61 @@ exports.getProviderRating = function(req, res) {
       }
       posts[index].post = post;
       posts[index].averageRating = totalRating/users;
-      posts[index].userRating = userRating;
+
     })
     return res.status(201).json(posts);
   });
 
 }
 
+/**
+ * Method used to update/insert a rating into db
+ * @param req
+ * @param res
+ */
+exports.insertupdate = function(req, res) {
+
+  var postRating = req.body.post;
+  var provider = req.body.provider;
+  ///console.log(postRating);
+
+  if(req.user===undefined){//if user is not signed in  go to login page
+    return res.status(401).end();
+  }
+  var user = req.user.name;
+
+  Rating.find({"provider":provider._id,"author":user} ,function(err,ratings){
+    if(err) { console.log(err); }
+    postRating.forEach(function(post){
+      if(post.userRating>0 &&post.userRating<=5) {
+        var ratingTobeUpdated = null;
+        ratings.forEach(function (rating) {
+          if (rating.criteria == post.post) {
+            ratingTobeUpdated = rating;
+          }
+        });
+
+        if (ratingTobeUpdated !== null) {
+          ratingTobeUpdated.rating = post.userRating
+          ratingTobeUpdated.save();
+        } else {
+          //insert a new record to db
+          var rating = new Rating({
+            "author": user,
+            "rating": post.userRating,
+            "criteria": post.post,
+            "provider": provider._id
+          })
+
+          rating.save();
+        }
+      }
+    });
+  });
+
+  return res.status(201).json(user);
+
+}
 
 // Get a single rating
 exports.show = function(req, res) {
@@ -198,45 +246,6 @@ exports.destroy = function(req, res) {
         })
       });
     });
-  });
-};
-
-// upvote a rating from the DB.
-exports.upvote = function(req, res) {
-  Rating.findById(req.params.id, function(err, rating) {
-    if(err) return handleError(res, err);
-    if(!rating) return res.status(404).end('Rating not found');
-
-    if(req.user===undefined){//if user is not signed in  go to login page
-      return res.status(401).end();
-    }
-    if(rating.author === req.user.name){
-      res.write("Novote");//user cannot upvote his rating
-      return res.status(200).end();
-    }
-    if(rating.upvoteUser.indexOf(req.user.name)<0){//list of user that already upvoted.
-      rating.upvotes++;
-      rating.upvoteUser.push(req.user.name);
-
-      rating.save(function (err) {
-        if (err) return handleError(res, err);
-
-        console.log('res from api UPVOTING REPLY',res.body); //response is null
-
-        res.write("Upvote");
-        return res.status(200).end();
-      })
-    }else{
-      rating.upvotes--;
-      rating.upvoteUser.pop(req.user.name);
-
-      rating.save(function (err) {
-        if (err) return handleError(res, err);
-        console.log('res from api UPVOTING REPLY',res.body); //response is null
-        res.write("Downvote");
-        return res.status(200).end();
-      })
-    }
   });
 };
 
