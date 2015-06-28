@@ -7,9 +7,9 @@
 </div>
 <ul>
   <li ng-repeat="provider in providers track by $index" current-page="currentPage" pagination-id="provider"> <!-- | orderBy:'-upvotes'-->
-
-       <a ui-sref="#">Average Rating :{{provider.averageRating}}</a ui-sref="rating">
-        <!--<span class="glyphicon glyphicon-thumbs-up"
+    <!--<a ui-sref="#">Average Rating :{{provider.averageRating}}</a>-->
+    <!--<star-rating ng-model="averageRating" ></star-rating>-->
+    <!--<span class="glyphicon glyphicon-thumbs-up"
               ng-click="incrementUpvotes(provider)"></span>-->
         <span style="font-size:18px; margin-left:10px;">
                 {{provider.upvotes}} - <strong>{{provider.name}}</strong>
@@ -24,6 +24,8 @@
          </span>
     </span>
     <span ng-show="provider.author"> posted by {{provider.author}} |  </span>
+    <br/>
+    <average-star-rating ng-model="provider.averageRating" max="5" ng-class="someKey"><average-star-rating>
   </li>
 </ul>
 
