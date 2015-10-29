@@ -13,7 +13,7 @@
       <!--</p>-->
       <ul class="sidenav-menu">
         <li class="" ng-repeat="section in sections">
-          <md-button ui-sref="{{section.link}}">
+          <md-button ng-show="checkIfUserIsAllow({{section.permission}})" ui-sref="{{section.link}}">
             <i class="fa fa-fw {{section.icon}}"></i> {{section.title}}
           </md-button>
 

@@ -98,6 +98,8 @@ angular.module('cspMetadataApp')
        * @return {Object} user
        */
       getCurrentUser: function() {
+
+        console.log("Current user: ", currentUser)
         return currentUser;
       },
 

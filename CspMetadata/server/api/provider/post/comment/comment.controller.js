@@ -28,6 +28,9 @@ exports.index = function(req, res) {
       })
   })
 };
+
+
+
 // /api/providers/5550bb0d56a7c1401ec70d89/posts/5550bb2056a7c1401ec70d8a/comments
 
 

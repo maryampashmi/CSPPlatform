@@ -104,7 +104,9 @@ angular.module('cspMetadataApp')
       });
     };
 
-    ob.createPost = function(provider,post) {
+
+
+      ob.createPost = function(provider,post) {
       console.log('in createPost inside FACTORY PROVIDER',provider);
       console.log('in createPost inside FACTORY POST',post);
         return $http.post('/api/providers/'+ provider._id + '/posts',post, {

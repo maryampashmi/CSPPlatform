@@ -22,6 +22,7 @@
   <button class="btn btn-xs btn-info" ng-show="isLoggedIn()  && !isReadonly"
           ng-click="cancelRate()">Cancel
   </button>
+  {{averageProviderRating | number : 1}}
   <average-star-rating ng-model="averageProviderRating" max="5" ng-class="someKey"><average-star-rating>
 </div>
 
@@ -33,7 +34,7 @@
 <ul>
   <div ng-repeat="post in provider.posts track by $index"  pagination-id="post">
     <span style="font-size:18px; margin-left:10px;">
-         <!--AVG {{postRating[$index].averageRating}}-->
+         {{postRating[$index].averageRating  | number : 1}}
          <!--<input ng-model="postRating[$index].userRating" style="width: 2em"  ng-show="!isReadonly"/>-->
          <strong>{{post.title}}</strong>| {{post.body | limitTo:20}}{{post.body > 20 ? '':'...'}} post by {{post.author}}
           <span ng-if="post.comments.length !== 0">
@@ -54,7 +55,7 @@
 </ul>
 
 
-<form ng-submit="addPost()" style="margin-top:30px;" ng-show="isLoggedIn()">
+<form ng-submit="addPost()" style="margin-top:30px;" ng-show= isLoggedIn()">
   <h3>Add a new post</h3>
 
   <div class="form-group">
